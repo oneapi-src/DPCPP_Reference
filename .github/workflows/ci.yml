@@ -40,7 +40,7 @@ jobs:
       if: ${{ github.ref == 'refs/heads/dpcpp' }}
       run: |
           cd gh-pages
-	  rm -rf *
+          git rm -r *
           cp -r ../build/html/* .
           cp ../build/latex/*.pdf .
           git config user.name github-actions
