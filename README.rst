@@ -2,10 +2,6 @@
   Copyright 2020 The Khronos Group Inc.
   SPDX-License-Identifier: CC-BY-4.0
 
-.. image:: https://readthedocs.org/projects/sycl/badge/?version=latest
-	   :target: https://sycl.readthedocs.io/en/latest/?badge=latest
-           :alt: Documentation Status
-
 ==========================
  DPC++ Language Reference
 ==========================
@@ -17,8 +13,8 @@ PR to fix it.
 Publishing
 ==========
 
-Commits to dpcpp branch are built and published at `Github Pages
-<https://oneapi-src.github.io/DPCPP_Reference>`__
+Commits to dpcpp branch are built by GitHub Actions and published with
+`Github Pages <https://oneapi-src.github.io/DPCPP_Reference>`__
 
 Prerequisites
 =============
