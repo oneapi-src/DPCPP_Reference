@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Buffer accessors &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Local accessor" href="local-accessor.html" />
+    <link rel="prev" title="Accessors" href="accessors.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="buffer.html">Buffers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="accessors.html">Accessors</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Buffer accessors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local-accessor.html">Local accessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="image-accessor.html">Image accessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessor-enums.html">mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessor-enums.html#target">target</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="address-space.html">Multipointer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="private_memory.html">private_memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sampler.html">Samplers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+          <li><a href="accessors.html">Accessors</a> &raquo;</li>
+        
+      <li>Buffer accessors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/buffer-accessor.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="buffer-accessors">
+<h1>Buffer accessors<a class="headerlink" href="#buffer-accessors" title="Permalink to this headline">¶</a></h1>
+<div class="api-class section" id="buffer-accessor">
+<span id="id1"></span><h2>Buffer accessor<a class="headerlink" href="#buffer-accessor" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">accessmode</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">accessTarget</span> <span class="o">=</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span><span class="p">::</span><span class="n">global_buffer</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder</span> <span class="o">=</span> <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span><span class="p">::</span><span class="n">false_t</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">accessor</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Description</p>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 69%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dataT</p></td>
+<td><p>Type of buffer element</p></td>
+</tr>
+<tr class="row-even"><td><p>dimensions</p></td>
+<td><p>Number of buffer dimensions</p></td>
+</tr>
+<tr class="row-odd"><td><p>accessmode</p></td>
+<td><p>See <a class="reference internal" href="accessor-enums.html#access-mode"><span class="std std-ref">mode</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>accessTarget</p></td>
+<td><p>See <a class="reference internal" href="accessor-enums.html#access-target"><span class="std std-ref">target</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>isPlaceholder</p></td>
+<td><p>True if accessor is a placeholder</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Member types</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>value_type</p></td>
+<td><p>Type of buffer element</p></td>
+</tr>
+<tr class="row-even"><td><p>reference</p></td>
+<td><p>Type of reference to buffer element</p></td>
+</tr>
+<tr class="row-odd"><td><p>const_reference</p></td>
+<td><p>Type of const reference to buffer element</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.7.6.9</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ ((isPlaceholder == access::placeholder::false_t &amp;&amp; accessTarget == access::target::host_buffer)
+  || (isPlaceholder == access::placeholder::true_t
+      &amp;&amp; (accessTarget == access::target::global_buffer
+          || accessTarget == access::target::constant_buffer)))
+ &amp;&amp; dimensions == 0</em>
+
+template &lt;typename AllocatorT&gt;
+accessor(buffer&lt;dataT, 1, AllocatorT&gt; &amp;bufferRef,
+         const property_list &amp;propList = {});
+
+<em>Available only when:
+ (isPlaceholder == access::placeholder::false_t
+  &amp;&amp; (accessTarget == access::target::global_buffer
+      || accessTarget == access::target::constant_buffer))
+ &amp;&amp; dimensions == 0</em>
+
+template &lt;typename AllocatorT&gt;
+accessor(buffer&lt;dataT, 1, AllocatorT&gt; &amp;bufferRef,
+         handler &amp;commandGroupHandlerRef, const property_list &amp;propList = {});
+
+<em>Available only when:
+ ((isPlaceholder == access::placeholder::false_t
+   &amp;&amp; accessTarget == access::target::host_buffer)
+  || (isPlaceholder == access::placeholder::true_t
+      &amp;&amp; (accessTarget == access::target::global_buffer
+          || accessTarget == access::target::constant_buffer)))
+ &amp;&amp; dimensions &gt; 0</em>
+
+template &lt;typename AllocatorT&gt;
+accessor(buffer&lt;dataT, dimensions, AllocatorT&gt; &amp;bufferRef,
+         const property_list &amp;propList = {});
+template &lt;typename AllocatorT&gt;
+accessor(buffer&lt;dataT, dimensions, AllocatorT&gt; &amp;bufferRef,
+         range&lt;dimensions&gt; accessRange, const property_list &amp;propList = {});
+template &lt;typename AllocatorT&gt;
+accessor(buffer&lt;dataT, dimensions, AllocatorT&gt; &amp;bufferRef,
+         range&lt;dimensions&gt; accessRange, id&lt;dimensions&gt; accessOffset,
+         const property_list &amp;propList = {});
+
+<em>Available only when:
+ (isPlaceholder == access::placeholder::false_t
+  &amp;&amp; (accessTarget == access::target::global_buffer
+      || accessTarget == access::target::constant_buffer))
+  &amp;&amp; dimensions &gt; 0</em>
+
+template &lt;typename AllocatorT&gt;
+accessor(buffer&lt;dataT, dimensions, AllocatorT&gt; &amp;bufferRef,
+         handler &amp;commandGroupHandlerRef, const property_list &amp;propList = {});
+template &lt;typename AllocatorT&gt;
+accessor(buffer&lt;dataT, dimensions, AllocatorT&gt; &amp;bufferRef,
+         handler &amp;commandGroupHandlerRef, range&lt;dimensions&gt; accessRange,
+         const property_list &amp;propList = {});
+template &lt;typename AllocatorT&gt;
+accessor(buffer&lt;dataT, dimensions, AllocatorT&gt; &amp;bufferRef,
+         handler &amp;commandGroupHandlerRef, range&lt;dimensions&gt; accessRange,
+         id&lt;dimensions&gt; accessOffset, const property_list &amp;propList = {});</pre>
+<p>Construct an accessor for a buffer.</p>
+<p>Programs typically find it more convenient to use
+<a class="reference internal" href="buffer.html#buffer-get-access"><span class="std std-ref">get_access</span></a> to create an accessor for a buffer.</p>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>AllocatorT</p></td>
+<td><p>Type of allocator for buffer element</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 62%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bufferRef</p></td>
+<td><p>Associate accessor with this buffer</p></td>
+</tr>
+<tr class="row-even"><td><p>commandGroupHandlerRef</p></td>
+<td><p>Associate accessor with this handler</p></td>
+</tr>
+<tr class="row-odd"><td><p>propList</p></td>
+<td><p><a class="reference internal" href="#buffer-accessor-properties">Buffer accessor properties</a></p></td>
+</tr>
+<tr class="row-even"><td><p>accessRange</p></td>
+<td><p>Dimensions of data to be accessed</p></td>
+</tr>
+<tr class="row-odd"><td><p>accessOffset</p></td>
+<td><p>Coordinates of origin of data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="is-placeholder">
+<h3>is_placeholder<a class="headerlink" href="#is-placeholder" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">constexpr</span> <span class="nb">bool</span> <span class="n">is_placeholder</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Return True if this is a placeholder accessor.</p>
+</div>
+<div class="section" id="get-size">
+<h3>get_size<a class="headerlink" href="#get-size" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_size</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns size in bytes of the buffer region that this accesses.</p>
+</div>
+<div class="section" id="get-count">
+<h3>get_count<a class="headerlink" href="#get-count" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_count</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns number elements that this accesses.</p>
+</div>
+<div class="section" id="get-range">
+<h3>get_range<a class="headerlink" href="#get-range" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ dimensions &gt; 0</em>
+
+range&lt;dimensions&gt; get_range() const;</pre>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dimensions</p></td>
+<td><p>number of dimensions</p></td>
+</tr>
+</tbody>
+</table>
+<p>Returns dimensions of the asssociated buffer or range that was
+provided when the accessor was created.</p>
+</div>
+<div class="section" id="get-offset">
+<h3>get_offset<a class="headerlink" href="#get-offset" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ dimensions &gt; 0</em>
+
+id&lt;dimensions&gt; get_offset() const;</pre>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dimensions</p></td>
+<td><p>number of dimensions</p></td>
+</tr>
+</tbody>
+</table>
+<p>Returns coordinates of the origin of the buffer or offset that was
+provided when the accessor was created.</p>
+</div>
+<div class="section" id="operator">
+<h3>operator ()<a class="headerlink" href="#operator" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ accessMode == access::mode::write
+  || accessMode == access::mode::read_write
+  || accessMode == access::mode::discard_write
+  || accessMode == access::mode::discard_read_write</em>
+
+operator dataT &amp;() const;
+
+<em>Available only when:
+ accessMode == access::mode::read</em>
+
+operator dataT() const;
+
+<em>Available only when:
+ accessMode == access::mode::atomic</em>
+
+operator atomic&lt;dataT, access::address_space::global_space&gt; () const;</pre>
+<p>Returns reference or value of element in the associated buffer.</p>
+<p>The variants of this operator are only available when <em>dimensions ==
+0</em>, which means that a buffer contains a single element.</p>
+</div>
+<div class="section" id="id2">
+<h3>operator[]<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Reference variants</em>
+dataT &amp;operator[](size_t index) const;
+dataT &amp;operator[](id&lt;dimensions&gt; index) const;
+
+<em>Value variants</em>
+dataT operator[](size_t index) const;
+dataT operator[](id&lt;dimensions&gt; index) const;
+
+<em>Atomic variants</em>
+atomic&lt;dataT, access::address_space::global_space&gt; operator[](
+  size_t index) const;
+atomic&lt;dataT, access::address_space::global_space&gt; operator[](
+  id&lt;dimensions&gt; index) const;
+
+<em>Single dimension in multi-dimensional buffer</em>
+__unspecified__ &amp;operator[](size_t index) const;</pre>
+<p>Returns reference or value of element in the associated buffer at the
+requested index.</p>
+<p>One dimensional buffers are indexed by a data of type
+size_t. Multi-dimensional buffers may be indexed by a data of type
+<code class="docutils literal notranslate"><span class="pre">id&lt;dimensions&gt;</span></code>, or by a sequence of <em>[]</em>, 1 per dimension. For
+example <code class="docutils literal notranslate"><span class="pre">a[1][2]</span></code>.  The operator returns a reference when the
+accessor allows writes, which requires that accessMode be one of
+<code class="docutils literal notranslate"><span class="pre">access::mode::write</span></code>, <code class="docutils literal notranslate"><span class="pre">accessMode</span> <span class="pre">==</span> <span class="pre">access::mode::read_write</span></code>,
+<code class="docutils literal notranslate"><span class="pre">accessMode</span> <span class="pre">==</span> <span class="pre">access::mode::discard_write</span></code>, or <code class="docutils literal notranslate"><span class="pre">accessMode</span> <span class="pre">==</span>
+<span class="pre">access::mode::discard_read_write</span></code>. The operator returns an atomic if
+the accessMode is <code class="docutils literal notranslate"><span class="pre">access::mode::atomic</span></code>.</p>
+</div>
+<div class="section" id="get-pointer">
+<h3>get_pointer<a class="headerlink" href="#get-pointer" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ accessTarget == access::target::host_buffer</em>
+
+dataT *get_pointer() const;
+
+<em>Available only when:
+ accessTarget == access::target::global_buffer</em>
+
+global_ptr&lt;dataT&gt; get_pointer() const;
+
+<em>Available only when:
+ accessTarget == access::target::constant_buffer</em>
+
+constant_ptr&lt;dataT&gt; get_pointer() const;</pre>
+<p>Returns pointer to memory in a host buffer.</p>
+</div>
+</div>
+<div class="section" id="buffer-accessor-properties">
+<h2>Buffer accessor properties<a class="headerlink" href="#buffer-accessor-properties" title="Permalink to this headline">¶</a></h2>
+<p>SYCL does not define any properties for the buffer specialization of
+an accessor.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="local-accessor.html" class="btn btn-neutral float-right" title="Local accessor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="accessors.html" class="btn btn-neutral float-left" title="Accessors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

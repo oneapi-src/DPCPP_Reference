@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vector types &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Synchronization types" href="types.html" />
+    <link rel="prev" title="Scalar types" href="scalar-types.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="scalar-types.html">Scalar types</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Vector types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rounding-mode">rounding_mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#elem">elem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vec">vec</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Vector types</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/vector-types.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vector-types">
+<h1>Vector types<a class="headerlink" href="#vector-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rounding-mode">
+<h2>rounding_mode<a class="headerlink" href="#rounding-mode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">rounding_mode</span> <span class="p">{</span>
+    <span class="n">automatic</span><span class="p">,</span>
+    <span class="n">rte</span><span class="p">,</span>
+    <span class="n">rtz</span><span class="p">,</span>
+    <span class="n">rtp</span><span class="p">,</span>
+    <span class="n">rtn</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="elem">
+<h2>elem<a class="headerlink" href="#elem" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">elem</span> <span class="p">{</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">g</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s3</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s4</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s5</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s6</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s7</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s8</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">s9</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">sA</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">sB</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">sC</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">sD</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">sE</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="nb">int</span> <span class="n">sF</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="api-class section" id="vec">
+<h2>vec<a class="headerlink" href="#vec" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="p">,</span> <span class="nb">int</span> <span class="n">numElements</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">vec</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Member types</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>element_type</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>vector_t</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">();</span>
+<span class="n">explicit</span> <span class="n">vec</span><span class="p">(</span><span class="n">const</span> <span class="n">dataT</span> <span class="o">&amp;</span><span class="n">arg</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span><span class="o">...</span> <span class="n">argTN</span><span class="o">&gt;</span>
+<span class="n">vec</span><span class="p">(</span><span class="n">const</span> <span class="n">argTN</span><span class="o">&amp;...</span> <span class="n">args</span><span class="p">);</span>
+<span class="n">vec</span><span class="p">(</span><span class="n">const</span> <span class="n">vec</span><span class="o">&lt;</span><span class="n">dataT</span><span class="p">,</span> <span class="n">numElements</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span>
+<span class="n">vec</span><span class="p">(</span><span class="n">vector_t</span> <span class="n">openclVector</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conversion-functions">
+<h3>Conversion functions<a class="headerlink" href="#conversion-functions" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"> operator vector_t() const;
+
+<em>Available when:
+ numElements == 1</em>
+
+operator dataT() const;</pre>
+</div>
+<div class="section" id="get-count">
+<h3>get_count<a class="headerlink" href="#get-count" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_count</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-size">
+<h3>get_size<a class="headerlink" href="#get-size" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_size</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="convert">
+<h3>convert<a class="headerlink" href="#convert" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">convertT</span><span class="p">,</span> <span class="n">rounding_mode</span> <span class="n">roundingMode</span> <span class="o">=</span> <span class="n">rounding_mode</span><span class="p">::</span><span class="n">automatic</span><span class="o">&gt;</span>
+<span class="n">vec</span><span class="o">&lt;</span><span class="n">convertT</span><span class="p">,</span> <span class="n">numElements</span><span class="o">&gt;</span> <span class="n">convert</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="as">
+<h3>as<a class="headerlink" href="#as" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">asT</span><span class="o">&gt;</span>
+<span class="n">asT</span> <span class="k">as</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="swizzle">
+<h3>swizzle<a class="headerlink" href="#swizzle" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">...</span> <span class="n">swizzleIndexes</span><span class="o">&gt;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">swizzle</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="swizzle-access">
+<h3>swizzle access<a class="headerlink" href="#swizzle-access" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__swizzled_vec__</span> <span class="n">x</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">y</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">z</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+
+<span class="n">__swizzled_vec__</span> <span class="n">w</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">r</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">g</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">b</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">a</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+
+<span class="n">__swizzled_vec__</span> <span class="n">s0</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">s1</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">s2</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">s3</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">s4</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">s5</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">s6</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">s7</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">s8</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">s9</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">sA</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">sC</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">sD</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">sE</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">sF</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+
+<span class="n">__swizzled_vec__</span> <span class="n">lo</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">hi</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">odd</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">__swizzled_vec__</span> <span class="n">even</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load">
+<h3>load<a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">access</span><span class="p">::</span><span class="n">address_space</span> <span class="n">addressSpace</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">load</span><span class="p">(</span><span class="n">size_t</span> <span class="n">offset</span><span class="p">,</span> <span class="n">multi_ptr</span><span class="o">&lt;</span><span class="n">const</span> <span class="n">dataT</span><span class="p">,</span> <span class="n">addressSpace</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="store">
+<h3>store<a class="headerlink" href="#store" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">access</span><span class="p">::</span><span class="n">address_space</span> <span class="n">addressSpace</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">load</span><span class="p">(</span><span class="n">size_t</span> <span class="n">offset</span><span class="p">,</span> <span class="n">multi_ptr</span><span class="o">&lt;</span><span class="n">const</span> <span class="n">dataT</span><span class="p">,</span> <span class="n">addressSpace</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arithmetic-operators">
+<h3>Arithmetic operators<a class="headerlink" href="#arithmetic-operators" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block">friend vec operator+(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator+(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator+(const dataT &amp;lhs, const vec &amp;rhs);
+
+friend vec operator-(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator-(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator-(const dataT &amp;lhs, const vec &amp;rhs);
+
+friend vec operator*(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator*(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator*(const dataT &amp;lhs, const vec &amp;rhs);
+
+friend vec operator/(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator/(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator/(const dataT &amp;lhs, const vec &amp;rhs);
+
+
+friend vec &amp;operator+=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator+=(vec &amp;lhs, const dataT &amp;rhs);
+
+friend vec &amp;operator-=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator-=(vec &amp;lhs, const dataT &amp;rhs);
+
+friend vec &amp;operator*=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator*=(vec &amp;lhs, const dataT &amp;rhs);
+
+friend vec &amp;operator/=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator/=(vec &amp;lhs, const dataT &amp;rhs);
+
+
+friend vec &amp;operator++(vec &amp;lhs);
+friend vec operator++(vec&amp; lhs, int);
+
+friend vec &amp;operator--(vec &amp;lhs);
+friend vec operator--(vec&amp; lhs, int);
+
+friend vec&lt;RET, numElements&gt; operator&amp;&amp;(const vec &amp;lhs, const vec &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator&amp;&amp;(const vec&amp; lhs, const dataT &amp;rhs);
+
+friend vec&lt;RET, numElements&gt; operator||(const vec &amp;lhs, const vec &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator||(const vec&amp; lhs, const dataT &amp;rhs);
+
+
+friend vec&lt;RET, numElements&gt; operator==(const vec &amp;lhs, const vec &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator==(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator==(const dataT &amp;lhs, const vec &amp;rhs);
+
+friend vec&lt;RET, numElements&gt; operator!=(const vec &amp;lhs, const vec &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator!=(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator!=(const dataT &amp;lhs, const vec &amp;rhs);
+
+friend vec&lt;RET, numElements&gt; operator&lt;(const vec &amp;lhs, const vec &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator&lt;(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator&lt;(const dataT &amp;lhs, const vec &amp;rhs);
+
+friend vec&lt;RET, numElements&gt; operator&gt;(const vec &amp;lhs, const vec &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator&gt;(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator&gt;(const dataT &amp;lhs, const vec &amp;rhs);
+
+friend vec&lt;RET, numElements&gt; operator&lt;=(const vec &amp;lhs, const vec &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator&lt;=(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator&lt;=(const dataT &amp;lhs, const vec &amp;rhs);
+
+friend vec&lt;RET, numElements&gt; operator&gt;=(const vec &amp;lhs, const vec &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator&gt;=(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec&lt;RET, numElements&gt; operator&gt;=(const dataT &amp;lhs, const vec &amp;rhs);
+
+vec&lt;dataT, numElements&gt; &amp;operator=(const vec&lt;dataT, numElements&gt; &amp;rhs);
+vec&lt;dataT, numElements&gt; &amp;operator=(const dataT &amp;rhs);
+
+friend vec&lt;RET, numElements&gt; operator&amp;&amp;(const dataT &amp;lhs, const vec &amp;rhs);
+
+friend vec&lt;RET, numElements&gt; operator||(const dataT &amp;lhs, const vec &amp;rhs);
+
+<em>Available only when:
+ dataT != cl_float &amp;&amp; dataT != cl_double &amp;&amp; dataT != cl_half</em>
+
+friend vec operator&lt;&lt;(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator&lt;&lt;(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator&lt;&lt;(const dataT &amp;lhs, const vec &amp;rhs);
+friend vec operator&gt;&gt;(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator&gt;&gt;(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator&gt;&gt;(const dataT &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator&gt;&gt;=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator&gt;&gt;=(vec &amp;lhs, const dataT &amp;rhs);
+friend vec &amp;operator&lt;&lt;=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator&lt;&lt;=(vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator&amp;(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator&amp;(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator|(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator|(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator^(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator^(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec &amp;operator&amp;=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator&amp;=(vec &amp;lhs, const dataT &amp;rhs);
+friend vec &amp;operator|=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator|=(vec &amp;lhs, const dataT &amp;rhs);
+friend vec &amp;operator^=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator^=(vec &amp;lhs, const dataT &amp;rhs);
+friend vec &amp;operator%=(vec &amp;lhs, const vec &amp;rhs);
+friend vec &amp;operator%=(vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator%(const vec &amp;lhs, const vec &amp;rhs);
+friend vec operator%(const vec &amp;lhs, const dataT &amp;rhs);
+friend vec operator%(const dataT &amp;lhs, const vec &amp;rhs);
+friend vec operator~(const vec &amp;v);
+friend vec&lt;RET, numElements&gt; operator!(const vec &amp;v);
+friend vec operator&amp;(const dataT &amp;lhs, const vec &amp;rhs);
+friend vec operator|(const dataT &amp;lhs, const vec &amp;rhs);
+friend vec operator^(const dataT &amp;lhs, const vec &amp;rhs);</pre>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="types.html" class="btn btn-neutral float-right" title="Synchronization types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="scalar-types.html" class="btn btn-neutral float-left" title="Scalar types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

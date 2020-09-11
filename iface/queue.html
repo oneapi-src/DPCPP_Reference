@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Queues &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Events" href="event.html" />
+    <link rel="prev" title="Devices" href="device.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="device-selector.html">Device selectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform.html">Platforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context.html">Contexts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="device.html">Devices</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Queues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#queue">queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queue-info">Queue Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queue-properties">Queue Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="event.html">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Queues</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/queue.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="queues">
+<span id="id1"></span><h1>Queues<a class="headerlink" href="#queues" title="Permalink to this headline">¶</a></h1>
+<div class="api-class section" id="queue">
+<span id="id2"></span><h2>queue<a class="headerlink" href="#queue" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">queue</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Queues connect a host program to a single device. Programs submit
+tasks to a device via the queue and may monitor the queue for
+completion. A program initiates the task by submitting a
+<a class="reference internal" href="command-group.html#command-group-function-object"><span class="std std-ref">Command group function object</span></a> to a queue. The command group
+defines a kernel function, the prerequisites to execute the kernel
+function, and an invocation of the kernel function on an index
+space. After submitting the command group, a program may use the queue
+to monitor the completion of the task for completion and errors.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.6.5</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">async_handler</span> <span class="o">&amp;</span><span class="n">asyncHandler</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">device_selector</span> <span class="o">&amp;</span><span class="n">deviceSelector</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">device_selector</span> <span class="o">&amp;</span><span class="n">deviceSelector</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">async_handler</span> <span class="o">&amp;</span><span class="n">asyncHandler</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">device</span> <span class="o">&amp;</span><span class="n">syclDevice</span><span class="p">,</span> <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">device</span> <span class="o">&amp;</span><span class="n">syclDevice</span><span class="p">,</span> <span class="n">const</span> <span class="n">async_handler</span> <span class="o">&amp;</span><span class="n">asyncHandler</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">context</span> <span class="o">&amp;</span><span class="n">syclContext</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">device_selector</span> <span class="o">&amp;</span><span class="n">deviceSelector</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">context</span> <span class="o">&amp;</span><span class="n">syclContext</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">device_selector</span> <span class="o">&amp;</span><span class="n">deviceSelector</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">async_handler</span> <span class="o">&amp;</span><span class="n">asyncHandler</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">context</span> <span class="o">&amp;</span><span class="n">syclContext</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">device</span> <span class="o">&amp;</span><span class="n">syclDevice</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">const</span> <span class="n">context</span> <span class="o">&amp;</span><span class="n">syclContext</span><span class="p">,</span> <span class="n">const</span> <span class="n">device</span> <span class="o">&amp;</span><span class="n">syclDevice</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">async_handler</span> <span class="o">&amp;</span><span class="n">asyncHandler</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">explicit</span> <span class="n">queue</span><span class="p">(</span><span class="n">cl_command_queue</span> <span class="n">clQueue</span><span class="p">,</span> <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">syclContext</span><span class="p">,</span>
+               <span class="n">const</span> <span class="n">async_handler</span> <span class="o">&amp;</span><span class="n">asyncHandler</span> <span class="o">=</span> <span class="p">{});</span>
+</pre></div>
+</div>
+<p>Construct a queue.</p>
+<p>Constructing a queue selects the device attached to the queue. The
+program may control the device by passing a cl_command_queue,
+<a class="reference internal" href="device.html#device"><span class="std std-ref">device</span></a>, or a <a class="reference internal" href="device-selector.html#device-selectors"><span class="std std-ref">device_selector</span></a>. If none
+are provided, the constructor uses the <a class="reference internal" href="device-selector.html#built-in-device-selectors"><span class="std std-ref">default_selector</span></a> to select a device. The constructor
+implicitly creates the <a class="reference internal" href="context.html#context"><span class="std std-ref">context</span></a>, <a class="reference internal" href="platform.html#platform"><span class="std std-ref">platform</span></a>, and
+<a class="reference internal" href="device.html#device"><span class="std std-ref">device</span></a> as needed.</p>
+<p>The SYCL runtime executes the tasks asynchronously. Programs may catch
+asynchronous errors that occur during execution by constructing the
+queue with an <code class="docutils literal notranslate"><span class="pre">asyncHandler</span></code> and calling <a class="reference internal" href="#wait-and-throw">wait_and_throw</a>.</p>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>propList</p></td>
+<td><p>See <a class="reference internal" href="#queue-properties">Queue Properties</a></p></td>
+</tr>
+<tr class="row-even"><td><p>asyncHandler</p></td>
+<td><p>Called for asynchronous exceptions, see <a class="reference internal" href="exception.html#async-handler"><span class="std std-ref">async_handler</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceSelector</p></td>
+<td><p>Selects device for queue</p></td>
+</tr>
+<tr class="row-even"><td><p>syclDevice</p></td>
+<td><p>Device for queue</p></td>
+</tr>
+<tr class="row-odd"><td><p>syclContext</p></td>
+<td><p>Associate queue with the context</p></td>
+</tr>
+<tr class="row-even"><td><p>clQueue</p></td>
+<td><p>Assocate queue with OpenCL|trade| queue</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Exceptions</p>
+<dl class="simple">
+<dt>invalid_object_error</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">syclContext</span></code> does not encapsulate <code class="docutils literal notranslate"><span class="pre">syclDevice</span></code>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cl_command_queue</span> <span class="n">get</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Return OpenCL queue associated with SYCL queue.</p>
+</div>
+<div class="section" id="get-context">
+<h3>get_context<a class="headerlink" href="#get-context" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="n">get_context</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns context associated with queue.</p>
+</div>
+<div class="section" id="get-device">
+<h3>get_device<a class="headerlink" href="#get-device" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="n">get_device</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns device associated with queue.</p>
+</div>
+<div class="section" id="is-host">
+<h3>is_host<a class="headerlink" href="#is-host" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_host</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if queue executes on host device.</p>
+</div>
+<div class="section" id="get-info">
+<h3>get_info<a class="headerlink" href="#get-info" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">queue</span> <span class="n">param</span><span class="o">&gt;</span>
+<span class="n">typename</span> <span class="n">info</span><span class="p">::</span><span class="n">param_traits</span><span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">queue</span><span class="p">,</span> <span class="n">param</span><span class="o">&gt;</span><span class="p">::</span><span class="n">return_type</span> <span class="n">get_info</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns information about the queue as determined by <code class="docutils literal notranslate"><span class="pre">param</span></code>. See
+<a class="reference internal" href="#queue">queue</a> for details.</p>
+</div>
+<div class="section" id="submit">
+<span id="queue-submit"></span><h3>submit<a class="headerlink" href="#submit" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">event</span> <span class="n">submit</span><span class="p">(</span><span class="n">T</span> <span class="n">cgf</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">event</span> <span class="n">submit</span><span class="p">(</span><span class="n">T</span> <span class="n">cgf</span><span class="p">,</span> <span class="n">const</span> <span class="n">queue</span> <span class="o">&amp;</span><span class="n">secondaryQueue</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 85%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>T</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>cgf</p></td>
+<td><p>Command group function object</p></td>
+</tr>
+<tr class="row-even"><td><p>secondaryQueue</p></td>
+<td><p>On error, runtime resubmits command group to the secondary queue.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Submit a command group function object to the queue for asynchronous
+execution.</p>
+<p>Returns an <a class="reference internal" href="event.html#event"><span class="std std-ref">event</span></a>, which may be used for synchronizing enqueued
+tasks. See <a class="reference internal" href="command-group.html#command-group-function-object"><span class="std std-ref">Command group function object</span></a> for more
+information on the <code class="docutils literal notranslate"><span class="pre">cgf</span></code> parameter.</p>
+<p>In most cases, the <code class="docutils literal notranslate"><span class="pre">T</span></code> template parameter is not provided because it
+is inferred from the type of <code class="docutils literal notranslate"><span class="pre">cgf</span></code>.</p>
+<p class="rubric">Exceptions</p>
+<p>The runtime resubmits the command group to the secondary queue
+if an error occurs executing on the primary queue.</p>
+</div>
+<div class="section" id="wait">
+<h3>wait<a class="headerlink" href="#wait" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">wait</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Wait for all enqueued tasks to complete.</p>
+</div>
+<div class="section" id="wait-and-throw">
+<span id="queue-wait-and-throw"></span><h3>wait_and_throw<a class="headerlink" href="#wait-and-throw" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">wait_and_throw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Wait for all enqueued tasks and pass asynchronous errors to handler
+provided in <a class="reference internal" href="#constructors">(constructors)</a>.</p>
+</div>
+<div class="section" id="throw-asynchronous">
+<span id="queue-throw-asynchronous"></span><h3>throw_asynchronous<a class="headerlink" href="#throw-asynchronous" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">throw_asynchronous</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Passes any asynchronous errors to handler provided in
+<a class="reference internal" href="#constructors">(constructors)</a>.</p>
+</div>
+<div class="section" id="memcpy">
+<span id="queue-memcpy"></span><h3>memcpy<a class="headerlink" href="#memcpy" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">event</span> <span class="n">memcpy</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span><span class="o">*</span> <span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set memory allocated with <a class="reference internal" href="usm-malloc.html#malloc-device"><span class="std std-ref">malloc_device</span></a>. For usage, see
+<a class="reference internal" href="event.html#event-elapsed-time"><span class="std std-ref">Example</span></a>.</p>
+</div>
+<div class="section" id="memset">
+<span id="queue-memset"></span><h3>memset<a class="headerlink" href="#memset" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">event</span> <span class="n">memset</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span> <span class="nb">int</span> <span class="n">value</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set memory allocated with <a class="reference internal" href="usm-malloc.html#malloc-device"><span class="std std-ref">malloc_device</span></a>. For usage, see
+<a class="reference internal" href="event.html#event-elapsed-time"><span class="std std-ref">Example</span></a>.</p>
+</div>
+<div class="section" id="fill">
+<span id="queue-fill"></span><h3>fill<a class="headerlink" href="#fill" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">event</span> <span class="n">fill</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span> <span class="n">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">count</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set memory allocated with <a class="reference internal" href="usm-malloc.html#malloc-device"><span class="std std-ref">malloc_device</span></a>.</p>
+</div>
+</div>
+<div class="section" id="queue-info">
+<h2>Queue Info<a class="headerlink" href="#queue-info" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">queue</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">context</span><span class="p">,</span>
+  <span class="n">device</span><span class="p">,</span>
+  <span class="n">reference_count</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span>
+</pre></div>
+</div>
+<p>Used as a template parameter for <a class="reference internal" href="#get-info">get_info</a> to determine the type of
+information.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 33%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Descriptor</p></th>
+<th class="head"><p>Return type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>context</p></td>
+<td><p>context</p></td>
+<td><p>SYCL context associated with the queue</p></td>
+</tr>
+<tr class="row-odd"><td><p>device</p></td>
+<td><p>device</p></td>
+<td><p>SYCL device associated with the queue</p></td>
+</tr>
+<tr class="row-even"><td><p>reference_count</p></td>
+<td><p>cl_uint</p></td>
+<td><p>Reference count of the queue</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="queue-properties">
+<h2>Queue Properties<a class="headerlink" href="#queue-properties" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">property</span><span class="p">::</span><span class="n">queue</span>
+</pre></div>
+</div>
+<p>Queue properties are specified in the queue constructor.</p>
+<dl class="simple">
+<dt>enable_profiling</dt><dd><p>SYCL runtime captures profiling information for command groups
+submitted to the queue.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>See <a class="reference internal" href="event.html#event-elapsed-time"><span class="std std-ref">Example</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="event.html" class="btn btn-neutral float-right" title="Events" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="device.html" class="btn btn-neutral float-left" title="Devices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

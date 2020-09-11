@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>h_item &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nd_item" href="nd_item.html" />
+    <link rel="prev" title="item" href="item.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="range.html">range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="group.html">group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id.html">id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="item.html">item</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">h_item</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-global">get_global</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-local">get_local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-logical-local">get_logical_local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-physical-local">get_physical_local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-global-range">get_global_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-global-id">get_global_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-local-range">get_local_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-local-id">get_local_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-logical-local-range">get_logical_local_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-logical-local-id">get_logical_local_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-physical-local-range">get_physical_local_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-physical-local-id">get_physical_local_id</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nd_item.html">nd_item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nd_range.html">nd_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="device-event.html">device_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command-group.html">Command groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command-group-handler.html">Invoking kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html">Kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program.html">Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>h_item</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/h_item.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="api-class section" id="h-item">
+<span id="id1"></span><h1>h_item<a class="headerlink" href="#h-item" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="nb">int</span> <span class="n">dimensions</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">h_item</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.10.1.6</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="get-global">
+<h2>get_global<a class="headerlink" href="#get-global" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">item</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">false</span><span class="o">&gt;</span> <span class="n">get_global</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-local">
+<h2>get_local<a class="headerlink" href="#get-local" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">item</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">false</span><span class="o">&gt;</span> <span class="n">get_local</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-logical-local">
+<h2>get_logical_local<a class="headerlink" href="#get-logical-local" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">item</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">false</span><span class="o">&gt;</span> <span class="n">get_logical_local</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-physical-local">
+<h2>get_physical_local<a class="headerlink" href="#get-physical-local" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">item</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">false</span><span class="o">&gt;</span> <span class="n">get_physical_local</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-global-range">
+<h2>get_global_range<a class="headerlink" href="#get-global-range" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_global_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_global_range</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-global-id">
+<h2>get_global_id<a class="headerlink" href="#get-global-id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_global_id</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_global_id</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-local-range">
+<h2>get_local_range<a class="headerlink" href="#get-local-range" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_local_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_local_range</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-local-id">
+<h2>get_local_id<a class="headerlink" href="#get-local-id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_local_id</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_local_id</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-logical-local-range">
+<h2>get_logical_local_range<a class="headerlink" href="#get-logical-local-range" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_logical_local_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_logical_local_range</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-logical-local-id">
+<h2>get_logical_local_id<a class="headerlink" href="#get-logical-local-id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_logical_local_id</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_logical_local_id</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-physical-local-range">
+<h2>get_physical_local_range<a class="headerlink" href="#get-physical-local-range" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_physical_local_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_physical_local_range</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-physical-local-id">
+<h2>get_physical_local_id<a class="headerlink" href="#get-physical-local-id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_physical_local_id</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_physical_local_id</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nd_item.html" class="btn btn-neutral float-right" title="nd_item" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="item.html" class="btn btn-neutral float-left" title="item" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,924 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Devices &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Queues" href="queue.html" />
+    <link rel="prev" title="Contexts" href="context.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="device-selector.html">Device selectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform.html">Platforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context.html">Contexts</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Devices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#device">device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#device-info">Device Info</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="queue.html">Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event.html">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Devices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/device.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="devices">
+<h1>Devices<a class="headerlink" href="#devices" title="Permalink to this headline">¶</a></h1>
+<div class="api-class section" id="device">
+<span id="id1"></span><h2>device<a class="headerlink" href="#device" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">device</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>An abstract class representing various models of SYCL devices. A
+device could be a GPU, CPU, or other type of accelerator. Devices
+execute kernel functions.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.6.4</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">device</span><span class="p">();</span>
+<span class="n">explicit</span> <span class="n">device</span><span class="p">(</span><span class="n">cl_device_id</span> <span class="n">deviceId</span><span class="p">);</span>
+<span class="n">explicit</span> <span class="n">device</span><span class="p">(</span><span class="n">const</span> <span class="n">device_selector</span> <span class="o">&amp;</span><span class="n">deviceSelector</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Construct a device.</p>
+<p>The default constructor creates a host device. A device can also be
+constructed from an OpenCL|trade| device or may be chosen by a
+<a class="reference internal" href="device-selector.html#device-selectors"><span class="std std-ref">Device selectors</span></a>.</p>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 58%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>deviceID</p></td>
+<td><p>OpenCL device id</p></td>
+</tr>
+<tr class="row-even"><td><p>deviceSelector</p></td>
+<td><p>Device selector</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cl_device_id</span> <span class="n">get</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Return the cl_device_id of the underlying OpenCL platform.</p>
+</div>
+<div class="section" id="is-host">
+<h3>is_host<a class="headerlink" href="#is-host" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_host</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if the device is a host device, False otherwise.</p>
+</div>
+<div class="section" id="is-cpu">
+<h3>is_cpu<a class="headerlink" href="#is-cpu" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_cpu</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if the device is a CPU, False otherwise.</p>
+</div>
+<div class="section" id="is-gpu">
+<h3>is_gpu<a class="headerlink" href="#is-gpu" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_gpu</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if the device is a GPU, False otherwise.</p>
+</div>
+<div class="section" id="is-accelerator">
+<h3>is_accelerator<a class="headerlink" href="#is-accelerator" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_accelerator</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if the device is an accelerator, False otherwise.</p>
+</div>
+<div class="section" id="get-platform">
+<h3>get_platform<a class="headerlink" href="#get-platform" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">platform</span> <span class="n">get_platform</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns the platform that contains the device.</p>
+</div>
+<div class="section" id="get-info">
+<h3>get_info<a class="headerlink" href="#get-info" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">device</span> <span class="n">param</span><span class="o">&gt;</span>
+<span class="n">typename</span> <span class="n">info</span><span class="p">::</span><span class="n">param_traits</span><span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">device</span><span class="p">,</span> <span class="n">param</span><span class="o">&gt;</span><span class="p">::</span><span class="n">return_type</span>
+<span class="n">get_info</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns information about the device as determined by <code class="docutils literal notranslate"><span class="pre">param</span></code>. See
+<a class="reference internal" href="#device-info">Device Info</a> for details.</p>
+<p class="rubric">Example</p>
+<p>See <a class="reference internal" href="platform.html#platform-example"><span class="std std-ref">Example</span></a>.</p>
+</div>
+<div class="section" id="has-extension">
+<h3>has_extension<a class="headerlink" href="#has-extension" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">has_extension</span><span class="p">(</span><span class="n">const</span> <span class="n">string_class</span> <span class="o">&amp;</span><span class="n">extension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if device supports the extension.</p>
+</div>
+<div class="section" id="create-sub-devices">
+<h3>create_sub_devices<a class="headerlink" href="#create-sub-devices" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ prop == info::partition_property::partition_equally</em>
+
+template &lt;<a class="reference external" href="info::partition_property">info::partition_property</a> prop&gt;
+vector_class&lt;device&gt; create_sub_devices(size_t nbSubDev) const;
+
+<em>Available only when:
+ prop == info::partition_property::partition_by_counts</em>
+
+template &lt;<a class="reference external" href="info::partition_property">info::partition_property</a> prop&gt;
+vector_class&lt;device&gt; create_sub_devices(const vector_class&lt;size_t&gt; &amp;counts) const;
+
+<em>Available only when:
+ prop == info::partition_property::partition_by_affinity_domain</em>
+
+template &lt;<a class="reference external" href="info::partition_property">info::partition_property</a> prop&gt;
+vector_class&lt;device&gt; create_sub_devices(<a class="reference external" href="info::affinity_domain">info::affinity_domain</a> affinityDomain) const;</pre>
+<p>Divide into sub-devices, according to the requested partition
+property.</p>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 58%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>prop</p></td>
+<td><p>See <a class="reference internal" href="#partition-property">partition_property</a></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>nbSubDev</p></td>
+<td><p>Number of subdevices</p></td>
+</tr>
+<tr class="row-even"><td><p>counts</p></td>
+<td><p>Vector of sizes for the subdevices</p></td>
+</tr>
+<tr class="row-odd"><td><p>affinityDomain</p></td>
+<td><p>See <a class="reference internal" href="#partition-affinity-domain">partition_affinity_domain</a></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Exceptions</p>
+<dl class="simple">
+<dt>feature_not_supported</dt><dd><p>When device does not support the <a class="reference internal" href="#partition-property">partition_property</a> specified by
+the <code class="docutils literal notranslate"><span class="pre">prop</span></code> template argument.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="get-devices">
+<span id="device-get-devices"></span><h3>get_devices<a class="headerlink" href="#get-devices" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">vector_class</span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span> <span class="n">get_devices</span><span class="p">(</span>
+    <span class="n">info</span><span class="p">::</span><span class="n">device_type</span> <span class="n">deviceType</span> <span class="o">=</span> <span class="n">info</span><span class="p">::</span><span class="n">device_type</span><span class="p">::</span><span class="nb">all</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Returns vector of devices filtered by <a class="reference internal" href="#info-device-type"><span class="std std-ref">device_type</span></a>.</p>
+<p class="rubric">Example</p>
+<p>Enumerate the GPU devices</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#include &lt;CL/sycl.hpp&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="n">device</span> <span class="p">:</span> <span class="n">sycl</span><span class="p">::</span><span class="n">device</span><span class="p">::</span><span class="n">get_devices</span><span class="p">(</span><span class="n">sycl</span><span class="p">::</span><span class="n">info</span><span class="p">::</span><span class="n">device_type</span><span class="p">::</span><span class="n">gpu</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;  Device: &quot;</span>
+	      <span class="o">&lt;&lt;</span> <span class="n">device</span><span class="o">.</span><span class="n">get_info</span><span class="o">&lt;</span><span class="n">sycl</span><span class="p">::</span><span class="n">info</span><span class="p">::</span><span class="n">device</span><span class="p">::</span><span class="n">name</span><span class="o">&gt;</span><span class="p">()</span>
+	      <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="device-info">
+<h2>Device Info<a class="headerlink" href="#device-info" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="info-device">
+<span id="id2"></span><h3>device<a class="headerlink" href="#info-device" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">device</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">device_type</span><span class="p">,</span>
+  <span class="n">vendor_id</span><span class="p">,</span>
+  <span class="n">max_compute_units</span><span class="p">,</span>
+  <span class="n">max_work_item_dimensions</span><span class="p">,</span>
+  <span class="n">max_work_item_sizes</span><span class="p">,</span>
+  <span class="n">max_work_group_size</span><span class="p">,</span>
+  <span class="n">preferred_vector_width_char</span><span class="p">,</span>
+  <span class="n">preferred_vector_width_short</span><span class="p">,</span>
+  <span class="n">preferred_vector_width_int</span><span class="p">,</span>
+  <span class="n">preferred_vector_width_long</span><span class="p">,</span>
+  <span class="n">preferred_vector_width_float</span><span class="p">,</span>
+  <span class="n">preferred_vector_width_double</span><span class="p">,</span>
+  <span class="n">preferred_vector_width_half</span><span class="p">,</span>
+  <span class="n">native_vector_width_char</span><span class="p">,</span>
+  <span class="n">native_vector_width_short</span><span class="p">,</span>
+  <span class="n">native_vector_width_int</span><span class="p">,</span>
+  <span class="n">native_vector_width_long</span><span class="p">,</span>
+  <span class="n">native_vector_width_float</span><span class="p">,</span>
+  <span class="n">native_vector_width_double</span><span class="p">,</span>
+  <span class="n">native_vector_width_half</span><span class="p">,</span>
+  <span class="n">max_clock_frequency</span><span class="p">,</span>
+  <span class="n">address_bits</span><span class="p">,</span>
+  <span class="n">max_mem_alloc_size</span><span class="p">,</span>
+  <span class="n">image_support</span><span class="p">,</span>
+  <span class="n">max_read_image_args</span><span class="p">,</span>
+  <span class="n">max_write_image_args</span><span class="p">,</span>
+  <span class="n">image2d_max_height</span><span class="p">,</span>
+  <span class="n">image2d_max_width</span><span class="p">,</span>
+  <span class="n">image3d_max_height</span><span class="p">,</span>
+  <span class="n">image3d_max_width</span><span class="p">,</span>
+  <span class="n">image3d_max_depth</span><span class="p">,</span>
+  <span class="n">image_max_buffer_size</span><span class="p">,</span>
+  <span class="n">image_max_array_size</span><span class="p">,</span>
+  <span class="n">max_samplers</span><span class="p">,</span>
+  <span class="n">max_parameter_size</span><span class="p">,</span>
+  <span class="n">mem_base_addr_align</span><span class="p">,</span>
+  <span class="n">half_fp_config</span><span class="p">,</span>
+  <span class="n">single_fp_config</span><span class="p">,</span>
+  <span class="n">double_fp_config</span><span class="p">,</span>
+  <span class="n">global_mem_cache_type</span><span class="p">,</span>
+  <span class="n">global_mem_cache_line_size</span><span class="p">,</span>
+  <span class="n">global_mem_cache_size</span><span class="p">,</span>
+  <span class="n">global_mem_size</span><span class="p">,</span>
+  <span class="n">max_constant_buffer_size</span><span class="p">,</span>
+  <span class="n">max_constant_args</span><span class="p">,</span>
+  <span class="n">local_mem_type</span><span class="p">,</span>
+  <span class="n">local_mem_size</span><span class="p">,</span>
+  <span class="n">error_correction_support</span><span class="p">,</span>
+  <span class="n">host_unified_memory</span><span class="p">,</span>
+  <span class="n">profiling_timer_resolution</span><span class="p">,</span>
+  <span class="n">is_endian_little</span><span class="p">,</span>
+  <span class="n">is_available</span><span class="p">,</span>
+  <span class="n">is_compiler_available</span><span class="p">,</span>
+  <span class="n">is_linker_available</span><span class="p">,</span>
+  <span class="n">execution_capabilities</span><span class="p">,</span>
+  <span class="n">queue_profiling</span><span class="p">,</span>
+  <span class="n">built_in_kernels</span><span class="p">,</span>
+  <span class="n">platform</span><span class="p">,</span>
+  <span class="n">name</span><span class="p">,</span>
+  <span class="n">vendor</span><span class="p">,</span>
+  <span class="n">driver_version</span><span class="p">,</span>
+  <span class="n">profile</span><span class="p">,</span>
+  <span class="n">version</span><span class="p">,</span>
+  <span class="n">opencl_c_version</span><span class="p">,</span>
+  <span class="n">extensions</span><span class="p">,</span>
+  <span class="n">printf_buffer_size</span><span class="p">,</span>
+  <span class="n">preferred_interop_user_sync</span><span class="p">,</span>
+  <span class="n">parent_device</span><span class="p">,</span>
+  <span class="n">partition_max_sub_devices</span><span class="p">,</span>
+  <span class="n">partition_properties</span><span class="p">,</span>
+  <span class="n">partition_affinity_domains</span><span class="p">,</span>
+  <span class="n">partition_type_property</span><span class="p">,</span>
+  <span class="n">partition_type_affinity_domain</span><span class="p">,</span>
+  <span class="n">reference_count</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span>
+</pre></div>
+</div>
+<p>Used as a template parameter for <a class="reference internal" href="#get-info">get_info</a> to determine the type of
+information.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 37%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Descriptor</p></th>
+<th class="head"><p>Return type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>device_type</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>vendor_id</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max_compute_units</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>max_work_item_dimensions</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max_work_item_sizes</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>max_work_group_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>preferred_vector_width_char</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>preferred_vector_width_short</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>preferred_vector_width_int</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>preferred_vector_width_long</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>preferred_vector_width_float</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>preferred_vector_width_double</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>preferred_vector_width_half</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>native_vector_width_char</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>native_vector_width_short</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>native_vector_width_int</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>native_vector_width_long</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>native_vector_width_float</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>native_vector_width_double</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>native_vector_width_half</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max_clock_frequency</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>address_bits</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max_mem_alloc_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>image_support</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max_read_image_args</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>max_write_image_args</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>image2d_max_height</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>image2d_max_width</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>image3d_max_height</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>image3d_max_width</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>image3d_max_depth</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>image_max_buffer_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>image_max_array_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>max_samplers</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max_parameter_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>mem_base_addr_align</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>half_fp_config</p></td>
+<td><p><a class="reference internal" href="#fp-config">fp_config</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>single_fp_config</p></td>
+<td><p><a class="reference internal" href="#fp-config">fp_config</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>double_fp_config</p></td>
+<td><p><a class="reference internal" href="#fp-config">fp_config</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>global_mem_cache_type</p></td>
+<td><p><a class="reference internal" href="#global-mem-cache-type">global_mem_cache_type</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>global_mem_cache_line_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>global_mem_cache_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>global_mem_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>max_constant_buffer_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max_constant_args</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>local_mem_type</p></td>
+<td><p><a class="reference internal" href="#local-mem-type">local_mem_type</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>local_mem_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>error_correction_support</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>host_unified_memory</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>profiling_timer_resolution</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>is_endian_little</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>is_available</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>is_compiler_available</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>is_linker_available</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>execution_capabilities</p></td>
+<td><p><a class="reference internal" href="#execution-capability">execution_capability</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>queue_profiling</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>built_in_kernels</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>platform</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>vendor</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>driver_version</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>profile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>version</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>opencl_c_version</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>extensions</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>printf_buffer_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>preferred_interop_user_sync</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>parent_device</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>partition_max_sub_devices</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>partition_properties</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>partition_affinity_domains</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>partition_type_property</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>partition_type_affinity_domain</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>reference_count</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="device-type">
+<span id="info-device-type"></span><h3>device_type<a class="headerlink" href="#device-type" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">device_type</span> <span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">cpu</span><span class="p">,</span>         <span class="o">//</span> <span class="n">Maps</span> <span class="n">to</span> <span class="n">OpenCL</span> <span class="n">CL_DEVICE_TYPE_CPU</span>
+  <span class="n">gpu</span><span class="p">,</span>         <span class="o">//</span> <span class="n">Maps</span> <span class="n">to</span> <span class="n">OpenCL</span> <span class="n">CL_DEVICE_TYPE_GPU</span>
+  <span class="n">accelerator</span><span class="p">,</span> <span class="o">//</span> <span class="n">Maps</span> <span class="n">to</span> <span class="n">OpenCL</span> <span class="n">CL_DEVICE_TYPE_ACCELERATOR</span>
+  <span class="n">custom</span><span class="p">,</span>      <span class="o">//</span> <span class="n">Maps</span> <span class="n">to</span> <span class="n">OpenCL</span> <span class="n">CL_DEVICE_TYPE_CUSTOM</span>
+  <span class="n">automatic</span><span class="p">,</span>   <span class="o">//</span> <span class="n">Maps</span> <span class="n">to</span> <span class="n">OpenCL</span> <span class="n">CL_DEVICE_TYPE_DEFAULT</span>
+  <span class="n">host</span><span class="p">,</span>
+  <span class="nb">all</span>          <span class="o">//</span> <span class="n">Maps</span> <span class="n">to</span> <span class="n">OpenCL</span> <span class="n">CL_DEVICE_TYPE_ALL</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>See platform <a class="reference internal" href="platform.html#platform-get-devices"><span class="std std-ref">get_devices</span></a> and device <a class="reference internal" href="#device-get-devices"><span class="std std-ref">get_devices</span></a>.</p>
+</div>
+<div class="section" id="partition-property">
+<h3>partition_property<a class="headerlink" href="#partition-property" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">partition_property</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">no_partition</span><span class="p">,</span>
+  <span class="n">partition_equally</span><span class="p">,</span>
+  <span class="n">partition_by_counts</span><span class="p">,</span>
+  <span class="n">partition_by_affinity_domain</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#create-sub-devices">create_sub_devices</a></p>
+</div>
+<div class="section" id="partition-affinity-domain">
+<h3>partition_affinity_domain<a class="headerlink" href="#partition-affinity-domain" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">partition_affinity_domain</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">not_applicable</span><span class="p">,</span>
+  <span class="n">numa</span><span class="p">,</span>
+  <span class="n">L4_cache</span><span class="p">,</span>
+  <span class="n">L3_cache</span><span class="p">,</span>
+  <span class="n">L2_cache</span><span class="p">,</span>
+  <span class="n">L1_cache</span><span class="p">,</span>
+  <span class="n">next_partitionable</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#create-sub-devices">create_sub_devices</a></p>
+</div>
+<div class="section" id="local-mem-type">
+<h3>local_mem_type<a class="headerlink" href="#local-mem-type" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">local_mem_type</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span> <span class="n">none</span><span class="p">,</span> <span class="n">local</span><span class="p">,</span> <span class="k">global</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#get-info">get_info</a></p>
+</div>
+<div class="section" id="fp-config">
+<h3>fp_config<a class="headerlink" href="#fp-config" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">fp_config</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">denorm</span><span class="p">,</span>
+  <span class="n">inf_nan</span><span class="p">,</span>
+  <span class="n">round_to_nearest</span><span class="p">,</span>
+  <span class="n">round_to_zero</span><span class="p">,</span>
+  <span class="n">round_to_inf</span><span class="p">,</span>
+  <span class="n">fma</span><span class="p">,</span>
+  <span class="n">correctly_rounded_divide_sqrt</span><span class="p">,</span>
+  <span class="n">soft_float</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#get-info">get_info</a></p>
+</div>
+<div class="section" id="global-mem-cache-type">
+<h3>global_mem_cache_type<a class="headerlink" href="#global-mem-cache-type" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">global_mem_cache_type</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span> <span class="n">none</span><span class="p">,</span> <span class="n">read_only</span><span class="p">,</span> <span class="n">read_write</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#get-info">get_info</a></p>
+</div>
+<div class="section" id="execution-capability">
+<h3>execution_capability<a class="headerlink" href="#execution-capability" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">execution_capability</span> <span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">exec_kernel</span><span class="p">,</span>
+  <span class="n">exec_native_kernel</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#get-info">get_info</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="queue.html" class="btn btn-neutral float-right" title="Queues" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="context.html" class="btn btn-neutral float-left" title="Contexts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

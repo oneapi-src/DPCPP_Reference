@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Device selectors &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Platforms" href="platform.html" />
+    <link rel="prev" title="param_traits" href="param_traits.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Device selectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#device-selector">device_selector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#built-in-device-selectors">Built-in Device Selectors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="platform.html">Platforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context.html">Contexts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="device.html">Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queue.html">Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event.html">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Device selectors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/device-selector.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="device-selectors">
+<span id="id1"></span><h1>Device selectors<a class="headerlink" href="#device-selectors" title="Permalink to this headline">¶</a></h1>
+<p>Devices selectors allow the SYCL runtime to choose the device.</p>
+<p>A device selector can be passed to <a class="reference internal" href="queue.html#queue"><span class="std std-ref">queue</span></a>, <a class="reference internal" href="platform.html#platform"><span class="std std-ref">platform</span></a>, and
+other constructors to control the selection of a device. A program may
+use <a class="reference internal" href="#id5">Built-in Device Selectors</a> or define its own <a class="reference internal" href="#device-selector">device_selector</a>
+for full control.</p>
+<div class="api-class section" id="device-selector">
+<span id="id2"></span><h2>device_selector<a class="headerlink" href="#device-selector" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">device_selector</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Abstract class for device selectors.</p>
+<p>This is the base class for the <a class="reference internal" href="#id5">Built-in Device Selectors</a>. To define
+a custom device selector, create a derived class that defines the ()
+operator.</p>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">device_selector</span><span class="p">();</span>
+<span class="n">device_selector</span><span class="p">(</span><span class="n">const</span> <span class="n">device_selector</span> <span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Construct a device_selector.</p>
+<p>A device selector can be created from another by passing <code class="docutils literal notranslate"><span class="pre">rhs</span></code>.</p>
+</div>
+<div class="section" id="select-device">
+<h3>select_device<a class="headerlink" href="#select-device" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="n">select_device</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns the device with the highest score as determined by calling
+<a class="reference internal" href="#id4">operator()</a>.</p>
+<p class="rubric">Exceptions</p>
+<p>Throws a runtime error if all devices have a negative score.</p>
+</div>
+<div class="section" id="operator">
+<h3>operator=<a class="headerlink" href="#operator" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">device_selector</span> <span class="o">&amp;</span><span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="n">const</span> <span class="n">device_selector</span> <span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Create a device selector by copying another one.</p>
+</div>
+<div class="section" id="id4">
+<h3>operator()<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="nb">int</span> <span class="n">operator</span><span class="p">()(</span><span class="n">const</span> <span class="n">device</span> <span class="o">&amp;</span><span class="n">device</span><span class="p">)</span> <span class="n">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Scoring function for devices.</p>
+<p>All derived device selectors must define this
+operator. <cite>select_device</cite> calls this operator for every device, and
+selects the device with highest score. Return a negative score if a
+device should not be selected.</p>
+</div>
+</div>
+<div class="section" id="built-in-device-selectors">
+<span id="id5"></span><h2>Built-in Device Selectors<a class="headerlink" href="#built-in-device-selectors" title="Permalink to this headline">¶</a></h2>
+<p>SYCL provides built-in device selectors for convenience. They use
+<a class="reference internal" href="#device-selector">device_selector</a> as a base class.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>default_selector</p></td>
+<td><p>Selects device according to implementation-defined heuristic or host device if no device can be found.</p></td>
+</tr>
+<tr class="row-even"><td><p>gpu_selector</p></td>
+<td><p>Select a GPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>accelerator_selector</p></td>
+<td><p>Select an accelerator</p></td>
+</tr>
+<tr class="row-even"><td><p>cpu_selector</p></td>
+<td><p>Select a CPU device</p></td>
+</tr>
+<tr class="row-odd"><td><p>host_selector</p></td>
+<td><p>Select the host device</p></td>
+</tr>
+</tbody>
+</table>
+<p>Create a device selector by copying another one.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.6.1.1</p>
+<p class="rubric">Example</p>
+</div>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#include &lt;CL/sycl.hpp&gt;</span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">sycl</span><span class="p">;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">device</span> <span class="n">d</span><span class="p">;</span>
+  
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">device</span><span class="p">(</span><span class="n">gpu_selector</span><span class="p">());</span>
+  <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">exception</span> <span class="n">const</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Cannot select a GPU</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="o">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Using a CPU device</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">device</span><span class="p">(</span><span class="n">cpu_selector</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Using &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="o">.</span><span class="n">get_info</span><span class="o">&lt;</span><span class="n">sycl</span><span class="p">::</span><span class="n">info</span><span class="p">::</span><span class="n">device</span><span class="p">::</span><span class="n">name</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Output on a system without a GPU:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cannot</span> <span class="n">select</span> <span class="n">a</span> <span class="n">GPU</span>
+<span class="n">No</span> <span class="n">device</span> <span class="n">of</span> <span class="n">requested</span> <span class="nb">type</span> <span class="n">available</span><span class="o">.</span> <span class="n">Please</span> <span class="n">check</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">software</span><span class="o">.</span><span class="n">intel</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">intel</span><span class="o">-</span><span class="n">oneapi</span><span class="o">-</span><span class="n">dpcpp</span><span class="o">-</span><span class="n">compiler</span><span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="n">requirements</span><span class="o">-</span><span class="n">beta</span> <span class="o">-</span><span class="mi">1</span> <span class="p">(</span><span class="n">CL_DEVICE_NOT_FOUND</span><span class="p">)</span>
+<span class="n">Using</span> <span class="n">a</span> <span class="n">CPU</span> <span class="n">device</span>
+<span class="n">Using</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Core</span><span class="p">(</span><span class="n">TM</span><span class="p">)</span> <span class="n">i5</span><span class="o">-</span><span class="mi">7300</span><span class="n">U</span> <span class="n">CPU</span> <span class="o">@</span> <span class="mf">2.60</span><span class="n">GHz</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="platform.html" class="btn btn-neutral float-right" title="Platforms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="param_traits.html" class="btn btn-neutral float-left" title="param_traits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

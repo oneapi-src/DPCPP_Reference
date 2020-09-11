@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Images &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Accessors" href="accessors.html" />
+    <link rel="prev" title="Buffers" href="buffer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="buffer.html">Buffers</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#image">image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#image-properties">Image properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#image-channel-order">Image_channel_order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#image-channel-type">Image_channel_type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessors.html">Accessors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="address-space.html">Multipointer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="private_memory.html">private_memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sampler.html">Samplers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Images</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/image.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="images">
+<span id="iface-images"></span><h1>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h1>
+<div class="api-class section" id="image">
+<h2>image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="nb">int</span> <span class="n">dimensions</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="n">typename</span> <span class="n">AllocatorT</span> <span class="o">=</span> <span class="n">cl</span><span class="p">::</span><span class="n">sycl</span><span class="p">::</span><span class="n">image_allocator</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">image</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 71%" />
+<col style="width: 29%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dimensions</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>AllocatorT</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.7.3</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="constructors">
+<span id="image-image"></span><h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block">image(image_channel_order order, image_channel_type type,
+      const range&lt;dimensions&gt; &amp;range, const property_list &amp;propList = {});
+image(image_channel_order order, image_channel_type type,
+      const range&lt;dimensions&gt; &amp;range, AllocatorT allocator,
+      const property_list &amp;propList = {});
+image(void <em>hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      const property_list &amp;propList = {});
+image(void *hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      AllocatorT allocator, const property_list &amp;propList = {});
+image(const void *hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      const property_list &amp;propList = {});
+image(const void *hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      AllocatorT allocator, const property_list &amp;propList = {});
+image(shared_ptr_class&lt;void&gt; &amp;hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      const property_list &amp;propList = {});
+image(shared_ptr_class&lt;void&gt; &amp;hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      AllocatorT allocator, const property_list &amp;propList = {});
+image(cl_mem clMemObject, const context &amp;syclContext,
+      event availableEvent = {});
+
+*Available only when:
+ dimensions &gt; 1</em>
+
+image(image_channel_order order, image_channel_type type,
+      const range&lt;dimensions&gt; &amp;range, const range&lt;dimensions - 1&gt; &amp;pitch,
+      const property_list &amp;propList = {});
+image(image_channel_order order, image_channel_type type,
+      const range&lt;dimensions&gt; &amp;range, const range&lt;dimensions - 1&gt; &amp;pitch,
+      AllocatorT allocator, const property_list &amp;propList = {});
+image(void *hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      range&lt;dimensions - 1&gt; &amp;pitch, const property_list &amp;propList = {});
+image(void *hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      range&lt;dimensions - 1&gt; &amp;pitch, AllocatorT allocator,
+      const property_list &amp;propList = {});
+image(shared_ptr_class&lt;void&gt; &amp;hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      const range&lt;dimensions - 1&gt; &amp;pitch, const property_list &amp;propList = {});
+image(shared_ptr_class&lt;void&gt; &amp;hostPointer, image_channel_order order,
+      image_channel_type type, const range&lt;dimensions&gt; &amp;range,
+      const range&lt;dimensions - 1&gt; &amp;pitch, AllocatorT allocator,
+      const property_list &amp;propList = {});</pre>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>order</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>range</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>propList</p></td>
+<td><p>See <a class="reference internal" href="#image-properties">Image properties</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>allocator</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pitch</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>hostPointer</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>syclContext</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>clMemObject</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>availableEvent</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-range">
+<h3>get_range<a class="headerlink" href="#get-range" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-pitch">
+<h3>get_pitch<a class="headerlink" href="#get-pitch" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">get_pitch</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Available only when dimensions &gt; 1</p>
+</div>
+<div class="section" id="get-count">
+<h3>get_count<a class="headerlink" href="#get-count" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_count</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-size">
+<h3>get_size<a class="headerlink" href="#get-size" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_size</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-allocator">
+<h3>get_allocator<a class="headerlink" href="#get-allocator" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AllocatorT</span> <span class="n">get_allocator</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-access">
+<h3>get_access<a class="headerlink" href="#get-access" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">accessMode</span><span class="o">&gt;</span>
+<span class="n">accessor</span><span class="o">&lt;</span><span class="n">dataT</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">accessMode</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span><span class="p">::</span><span class="n">image</span><span class="o">&gt;</span>
+<span class="n">get_access</span><span class="p">(</span><span class="n">handler</span> <span class="o">&amp;</span> <span class="n">commandGroupHandler</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">accessMode</span><span class="o">&gt;</span>
+<span class="n">accessor</span><span class="o">&lt;</span><span class="n">dataT</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">accessMode</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span><span class="p">::</span><span class="n">host_image</span><span class="o">&gt;</span>
+<span class="n">get_access</span><span class="p">();</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 86%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dataT</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>accessMode</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 86%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>commandGroupHandler</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="set-final-data">
+<h3>set_final_data<a class="headerlink" href="#set-final-data" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">Destination</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="n">nullptr_t</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">set_final_data</span><span class="p">(</span><span class="n">Destination</span> <span class="n">finalData</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Description</p>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 84%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Destination</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 84%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>finalData</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="set-write-back">
+<h3>set_write_back<a class="headerlink" href="#set-write-back" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">set_write_back</span><span class="p">(</span><span class="nb">bool</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 71%" />
+<col style="width: 29%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>flag</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="image-properties">
+<h2>Image properties<a class="headerlink" href="#image-properties" title="Permalink to this headline">¶</a></h2>
+<div class="api-class section" id="use-host-ptr">
+<h3>use_host_ptr<a class="headerlink" href="#use-host-ptr" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">use_host_ptr</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">property</span><span class="p">::</span><span class="n">image</span>
+</pre></div>
+</div>
+<p>Description</p>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="image-use-host-ptr-use-host-ptr">
+<span id="id1"></span><h4>(constructors)<a class="headerlink" href="#image-use-host-ptr-use-host-ptr" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">use_host_ptr</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Description</p>
+</div>
+</div>
+<div class="api-class section" id="use-mutex">
+<h3>use_mutex<a class="headerlink" href="#use-mutex" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">use_mutex</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">property</span><span class="p">::</span><span class="n">image</span>
+</pre></div>
+</div>
+<p>Description</p>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="image-get-mutex-ptr-get-mutex-ptr">
+<span id="id2"></span><h4>(constructors)<a class="headerlink" href="#image-get-mutex-ptr-get-mutex-ptr" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">use_mutex</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Description</p>
+</div>
+<div class="section" id="get-mutex-ptr">
+<h4>get_mutex_ptr<a class="headerlink" href="#get-mutex-ptr" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mutex_class</span> <span class="o">*</span><span class="n">get_mutex_ptr</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Description</p>
+</div>
+</div>
+<div class="section" id="context-bound">
+<h3>context_bound<a class="headerlink" href="#context-bound" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context_bound</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">property</span><span class="p">::</span><span class="n">image</span>
+</pre></div>
+</div>
+<p>Description</p>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="image-context-bound-context-bound">
+<span id="id3"></span><h4>(constructors)<a class="headerlink" href="#image-context-bound-context-bound" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">use_mutex</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Description</p>
+</div>
+<div class="section" id="get-context">
+<h4>get_context<a class="headerlink" href="#get-context" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="n">get_context</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Description</p>
+</div>
+</div>
+</div>
+<div class="section" id="image-channel-order">
+<h2>Image_channel_order<a class="headerlink" href="#image-channel-order" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">image_channel_order</span> <span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">a</span><span class="p">,</span>
+  <span class="n">r</span><span class="p">,</span>
+  <span class="n">rx</span><span class="p">,</span>
+  <span class="n">rg</span><span class="p">,</span>
+  <span class="n">rgx</span><span class="p">,</span>
+  <span class="n">ra</span><span class="p">,</span>
+  <span class="n">rgb</span><span class="p">,</span>
+  <span class="n">rgbx</span><span class="p">,</span>
+  <span class="n">rgba</span><span class="p">,</span>
+  <span class="n">argb</span><span class="p">,</span>
+  <span class="n">bgra</span><span class="p">,</span>
+  <span class="n">intensity</span><span class="p">,</span>
+  <span class="n">luminance</span><span class="p">,</span>
+  <span class="n">abgr</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="image-channel-type">
+<h2>Image_channel_type<a class="headerlink" href="#image-channel-type" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">image_channel_type</span> <span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">snorm_int8</span><span class="p">,</span>
+  <span class="n">snorm_int16</span><span class="p">,</span>
+  <span class="n">unorm_int8</span><span class="p">,</span>
+  <span class="n">unorm_int16</span><span class="p">,</span>
+  <span class="n">unorm_short_565</span><span class="p">,</span>
+  <span class="n">unorm_short_555</span><span class="p">,</span>
+  <span class="n">unorm_int_101010</span><span class="p">,</span>
+  <span class="n">signed_int8</span><span class="p">,</span>
+  <span class="n">signed_int16</span><span class="p">,</span>
+  <span class="n">signed_int32</span><span class="p">,</span>
+  <span class="n">unsigned_int8</span><span class="p">,</span>
+  <span class="n">unsigned_int16</span><span class="p">,</span>
+  <span class="n">unsigned_int32</span><span class="p">,</span>
+  <span class="n">fp16</span><span class="p">,</span>
+  <span class="n">fp32</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="accessors.html" class="btn btn-neutral float-right" title="Accessors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="buffer.html" class="btn btn-neutral float-left" title="Buffers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

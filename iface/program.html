@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exceptions" href="exception.html" />
+    <link rel="prev" title="Kernel" href="kernel.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="range.html">range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="group.html">group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id.html">id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="item.html">item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="h_item.html">h_item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nd_item.html">nd_item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nd_range.html">nd_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="device-event.html">device_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command-group.html">Command groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command-group-handler.html">Invoking kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html">Kernel</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Program</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#info-program">info::program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#program-state">program_state</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">program</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Program</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/program.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program">
+<h1>Program<a class="headerlink" href="#program" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="info-program">
+<h2><a class="reference external" href="info::program">info::program</a><a class="headerlink" href="#info-program" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">program</span><span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+    <span class="n">context</span><span class="p">,</span>
+    <span class="n">devices</span><span class="p">,</span>
+    <span class="n">reference_count</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="program-state">
+<h2>program_state<a class="headerlink" href="#program-state" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">program_state</span> <span class="p">{</span>
+    <span class="n">none</span><span class="p">,</span>
+    <span class="n">compiled</span><span class="p">,</span>
+    <span class="n">linked</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="api-class section" id="id1">
+<h2>program<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">program</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">explicit</span> <span class="n">program</span><span class="p">(</span><span class="n">const</span> <span class="n">context</span> <span class="o">&amp;</span><span class="n">context</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">program</span><span class="p">(</span><span class="n">const</span> <span class="n">context</span> <span class="o">&amp;</span><span class="n">context</span><span class="p">,</span> <span class="n">vector_class</span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span> <span class="n">deviceList</span><span class="p">,</span>
+        <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">program</span><span class="p">(</span><span class="n">vector_class</span><span class="o">&lt;</span><span class="n">program</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">programList</span><span class="p">,</span>
+        <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">program</span><span class="p">(</span><span class="n">vector_class</span><span class="o">&lt;</span><span class="n">program</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">programList</span><span class="p">,</span> <span class="n">string_class</span> <span class="n">linkOptions</span><span class="p">,</span>
+        <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">program</span><span class="p">(</span><span class="n">const</span> <span class="n">context</span> <span class="o">&amp;</span><span class="n">context</span><span class="p">,</span> <span class="n">cl_program</span> <span class="n">clProgram</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cl_program</span> <span class="n">get</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="is-host">
+<h3>is_host<a class="headerlink" href="#is-host" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_host</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile-with-kernel-type">
+<h3>compile_with_kernel_type<a class="headerlink" href="#compile-with-kernel-type" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">kernelT</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">build_with_kernel_type</span><span class="p">(</span><span class="n">string_class</span> <span class="n">buildOptions</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-with-source">
+<h3>build_with_source<a class="headerlink" href="#build-with-source" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">build_with_source</span><span class="p">(</span><span class="n">string_class</span> <span class="n">kernelSource</span><span class="p">,</span>
+                       <span class="n">string_class</span> <span class="n">buildOptions</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="link">
+<h3>link<a class="headerlink" href="#link" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">link</span><span class="p">(</span><span class="n">string_class</span> <span class="n">linkOptions</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="has-kernel">
+<h3>has_kernel<a class="headerlink" href="#has-kernel" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">kernelT</span><span class="o">&gt;</span>
+<span class="nb">bool</span> <span class="n">has_kernel</span><span class="o">&lt;</span><span class="n">kernelT</span><span class="o">&gt;</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+
+<span class="nb">bool</span> <span class="n">has_kernel</span><span class="p">(</span><span class="n">string_class</span> <span class="n">kernelName</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-kernel">
+<h3>get_kernel<a class="headerlink" href="#get-kernel" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">kernelT</span><span class="o">&gt;</span>
+<span class="n">kernel</span> <span class="n">get_kernel</span><span class="o">&lt;</span><span class="n">kernelT</span><span class="o">&gt;</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+
+<span class="n">kernel</span> <span class="n">get_kernel</span><span class="p">(</span><span class="n">string_class</span> <span class="n">kernelName</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-info">
+<h3>get_info<a class="headerlink" href="#get-info" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">program</span> <span class="n">param</span><span class="o">&gt;</span>
+<span class="n">typename</span> <span class="n">info</span><span class="p">::</span><span class="n">param_traits</span><span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">program</span><span class="p">,</span> <span class="n">param</span><span class="o">&gt;</span><span class="p">::</span><span class="n">return_type</span>
+<span class="n">get_info</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-binaries">
+<h3>get_binaries<a class="headerlink" href="#get-binaries" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vector_class</span><span class="o">&lt;</span><span class="n">vector_class</span><span class="o">&lt;</span><span class="n">char</span><span class="o">&gt;&gt;</span> <span class="n">get_binaries</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-context">
+<h3>get_context<a class="headerlink" href="#get-context" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="n">get_context</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-devices">
+<h3>get_devices<a class="headerlink" href="#get-devices" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vector_class</span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span> <span class="n">get_devices</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-compile-options">
+<h3>get_compile_options<a class="headerlink" href="#get-compile-options" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string_class</span> <span class="n">get_compile_options</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-link-options">
+<h3>get_link_options<a class="headerlink" href="#get-link-options" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string_class</span> <span class="n">get_link_options</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-build-options">
+<h3>get_build_options<a class="headerlink" href="#get-build-options" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string_class</span> <span class="n">get_build_options</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-state">
+<h3>get_state<a class="headerlink" href="#get-state" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">program_state</span> <span class="n">get_state</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exception.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kernel.html" class="btn btn-neutral float-left" title="Kernel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

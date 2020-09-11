@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Glossary &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/custom.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Notices and Disclaimers" href="notices.html" />
+    <link rel="prev" title="Streams" href="iface/stream.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="language/index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iface/dpcpp-index.html">Interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Glossary</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/glossary.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="glossary">
+<span id="id1"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<dl class="glossary simple">
+<dt id="term-accelerator">accelerator</dt><dd><p>Specialized component containing compute resources that can
+quickly execute a subset of operations. Examples include CPU,
+FPGA, GPU. See also: <a class="reference internal" href="#term-device"><span class="xref std std-term">device</span></a></p>
+</dd>
+<dt id="term-accessor">accessor</dt><dd><p>Interface to read and write data contained in a buffer, image, or
+local memory. Accessors implicitly define the data dependences
+when kernels and the host access a buffer. See <a class="reference internal" href="model/accessors.html#model-accessors"><span class="std std-ref">Accessors</span></a>.</p>
+</dd>
+<dt id="term-application-scope">application scope</dt><dd><p>Code that executes on the host.</p>
+</dd>
+<dt id="term-buffers">buffers</dt><dd><p>Encapsulates data that is must be accessed by the device. See
+<a class="reference internal" href="iface/buffer.html#iface-buffers"><span class="std std-ref">Buffers</span></a>.</p>
+</dd>
+<dt id="term-command-group-scope">command group scope</dt><dd><p>Code that acts as the interface between the host and device.</p>
+</dd>
+<dt id="term-command-queue">command queue</dt><dd><p>Issues command groups concurrently.</p>
+</dd>
+<dt id="term-compute-unit">compute unit</dt><dd><p>A grouping of processing elements into a ‘core’ that contains
+shared elements for use between the processing elements and with
+faster access than memory residing on other compute units on the
+device.</p>
+</dd>
+<dt id="term-device">device</dt><dd><p>An accelerator or specialized component containing compute
+resources that can quickly execute a subset of operations. A CPU
+can be employed as a device, but when it is, it is being employed
+as an accelerator. Examples include CPU, FPGA, GPU. See also:
+<a class="reference internal" href="#term-accelerator"><span class="xref std std-term">accelerator</span></a></p>
+</dd>
+<dt id="term-device-code">device code</dt><dd><p>Code that executes on the device rather than the host. Device
+code is specified via lambda expression, functor, or kernel
+class.</p>
+</dd>
+<dt id="term-fat-binary">fat binary</dt><dd><p>Application binary that contains device code for multiple
+devices.  The binary includes both the generic code (SPIR-V
+representation) and target specific executable code.</p>
+</dd>
+<dt id="term-fat-library">fat library</dt><dd><p>Archive or library of object code that contains object code for
+multiple devices. The fat library includes both the generic
+object (SPIR-V representation) and target specific object code.</p>
+</dd>
+<dt id="term-fat-object">fat object</dt><dd><p>File that contains object code for multiple devices. The fat
+object includes both the generic object (SPIR-V representation)
+and target specific object code.</p>
+</dd>
+<dt id="term-host">host</dt><dd><p>A CPU-based system (computer) that executes the primary portion
+of a program, specifically the application scope and command
+group scope.</p>
+</dd>
+<dt id="term-host-device">host device</dt><dd><p>A SYCL device that is always present and usually executes on the
+host CPU.</p>
+</dd>
+<dt id="term-host-code">host code</dt><dd><p>Code that is compiled by the host compiler and executes on the
+host rather than the device.</p>
+</dd>
+<dt id="term-images">images</dt><dd><p>Formatted opaque memory object that is accessed via built-in
+function. Typically pertains to pictures comprised of pixels
+stored in format like RGB.</p>
+</dd>
+<dt id="term-kernel-scope">kernel scope</dt><dd><p>Code that executes on the device.</p>
+</dd>
+<dt id="term-nd-range">nd-range</dt><dd><p>Short for N-Dimensional Range, a group of kernel instances, or
+work item, across one, two, or three dimensions.</p>
+</dd>
+<dt id="term-processing-element">processing element</dt><dd><p>Individual engine for computation that makes up a compute unit.</p>
+</dd>
+<dt id="term-single-source">single source</dt><dd><p>Denotes that source code for device and host can be in the same file.</p>
+</dd>
+<dt id="term-SPIR-V">SPIR-V</dt><dd><p>Binary intermediate language for representing graphical-shader
+stages and compute kernels.</p>
+</dd>
+<dt id="term-sub-group">sub-group</dt><dd><p>Collection of work-items in a work-group. Arranging computations
+in sub-groups may enables the use of SIMD instructions.</p>
+</dd>
+<dt id="term-work-group">work-group</dt><dd><p>Collection of work-items that execute on a compute unit.</p>
+</dd>
+<dt id="term-work-item">work-item</dt><dd><p>Basic unit of computation for a single point in the index space
+processed by a kernel.</p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="notices.html" class="btn btn-neutral float-right" title="Notices and Disclaimers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="iface/stream.html" class="btn btn-neutral float-left" title="Streams" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

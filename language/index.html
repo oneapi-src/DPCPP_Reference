@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Language &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interface" href="../iface/dpcpp-index.html" />
+    <link rel="prev" title="Fall Back" href="../model/fall-back.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#keywords">Keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preprocessor-directives-and-macros">Preprocessor Directives and Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-library-classes-required-for-the-interface">Standard Library Classes Required for the Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../iface/dpcpp-index.html">Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Language</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/language/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="language">
+<h1>Language<a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h1>
+<p>The host code can be compiled by C++11 and later compilers and take
+advantage of supported C++11 and later language features. The device
+code requires a compiler that accepts all C++03 language features and
+the following C++11 features:</p>
+<ul class="simple">
+<li><p>Lamdba expressions</p></li>
+<li><p>Variadic templates</p></li>
+<li><p>Alias templates</p></li>
+<li><p>rvalue references</p></li>
+<li><p>std::function, std::string, std::vector</p></li>
+</ul>
+<p>In addition, the device code cannot use the following features:</p>
+<ul class="simple">
+<li><p>Virtual Functions</p></li>
+<li><p>Virtual Inheritance</p></li>
+<li><p>Exceptions handling – throws and catches between host and device</p></li>
+<li><p>Run Time Type Information (RTTI)</p></li>
+<li><p>Object management employing new and delete operators</p></li>
+</ul>
+<p>The device code is specified via one of three language constructs:
+lambda expression, functor, or kernel class. The separation of host
+code and device code via these language constructs is natural and
+accomplished without language extensions. These different forms of
+expressing kernels give the developer flexibility in enmeshing the
+host code and device code. For example:</p>
+<ul class="simple">
+<li><p>To put the kernel code in line with the host code, consider employing
+a lambda expression.</p></li>
+<li><p>To have the device code separate from the host code, but still
+maintain the single source property, consider employing a functor.</p></li>
+<li><p>To port code from OpenCL programs or to ensure a more rigid
+separation between host and device code, consider employing the
+kernel class.</p></li>
+</ul>
+<div class="section" id="keywords">
+<h2>Keywords<a class="headerlink" href="#keywords" title="Permalink to this headline">¶</a></h2>
+<p>SYCL does not add any keywords to the C++ language.</p>
+</div>
+<div class="section" id="preprocessor-directives-and-macros">
+<h2>Preprocessor Directives and Macros<a class="headerlink" href="#preprocessor-directives-and-macros" title="Permalink to this headline">¶</a></h2>
+<p>Standard C++ preprocessing directives and macros are supported by the
+compiler. In addition, the SYCL Specification defines the SYCL specific
+preprocessor directives and macros.</p>
+<p>The following preprocessor macros are supported by the compiler.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 16%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Macro</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SYCL_DUMP_IMAGES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>Instructs the runtime to dump the device image</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SYCL_USE_KERNEL_SPV</span></code></p></td>
+<td><p>&lt;device binary&gt;</p></td>
+<td><p>Employ device binary to fulfill kernel launch request</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SYCL_PROGRAM_BUILD_OPTIONS</span></code></p></td>
+<td><p>&lt;options&gt;</p></td>
+<td><p>Used to pass additional options for device program building.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="standard-library-classes-required-for-the-interface">
+<h2>Standard Library Classes Required for the Interface<a class="headerlink" href="#standard-library-classes-required-for-the-interface" title="Permalink to this headline">¶</a></h2>
+<p>The SYCL specification documents a facility to enable vendors to provide
+custom optimized implementations. Implementations require aliases for
+several STL interfaces. These are summarized as follows:</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../iface/dpcpp-index.html" class="btn btn-neutral float-right" title="Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../model/fall-back.html" class="btn btn-neutral float-left" title="Fall Back" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

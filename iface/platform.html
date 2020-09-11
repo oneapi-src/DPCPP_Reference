@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Platforms &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contexts" href="context.html" />
+    <link rel="prev" title="Device selectors" href="device-selector.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="device-selector.html">Device selectors</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Platforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#platform">platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#platform-info">Platform Info</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="context.html">Contexts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="device.html">Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queue.html">Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event.html">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Platforms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/platform.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="platforms">
+<h1>Platforms<a class="headerlink" href="#platforms" title="Permalink to this headline">¶</a></h1>
+<div class="api-class section" id="platform">
+<span id="id1"></span><h2>platform<a class="headerlink" href="#platform" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">platform</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Abstraction for SYCL platform.</p>
+<p>A platform contains 1 or more SYCL devices, or a host device.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.6.2</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<p class="rubric" id="platform-example">Example</p>
+<p>Enumerate the platforms and the devices they contain.</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#include &lt;CL/sycl.hpp&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">auto</span> <span class="n">platforms</span> <span class="o">=</span> <span class="n">sycl</span><span class="p">::</span><span class="n">platform</span><span class="p">::</span><span class="n">get_platforms</span><span class="p">();</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">platform</span> <span class="p">:</span> <span class="n">platforms</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Platform: &quot;</span>
+	      <span class="o">&lt;&lt;</span> <span class="n">platform</span><span class="o">.</span><span class="n">get_info</span><span class="o">&lt;</span><span class="n">sycl</span><span class="p">::</span><span class="n">info</span><span class="p">::</span><span class="n">platform</span><span class="p">::</span><span class="n">name</span><span class="o">&gt;</span><span class="p">()</span>
+	      <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">auto</span> <span class="n">devices</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">get_devices</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">device</span> <span class="p">:</span> <span class="n">devices</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;  Device: &quot;</span>
+		<span class="o">&lt;&lt;</span> <span class="n">device</span><span class="o">.</span><span class="n">get_info</span><span class="o">&lt;</span><span class="n">sycl</span><span class="p">::</span><span class="n">info</span><span class="p">::</span><span class="n">device</span><span class="p">::</span><span class="n">name</span><span class="o">&gt;</span><span class="p">()</span>
+		<span class="o">&lt;&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Platform</span><span class="p">:</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">FPGA</span> <span class="n">Emulation</span> <span class="n">Platform</span> <span class="k">for</span> <span class="n">OpenCL</span><span class="p">(</span><span class="n">TM</span><span class="p">)</span>
+  <span class="n">Device</span><span class="p">:</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">FPGA</span> <span class="n">Emulation</span> <span class="n">Device</span>
+<span class="n">Platform</span><span class="p">:</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">OpenCL</span>
+  <span class="n">Device</span><span class="p">:</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Core</span><span class="p">(</span><span class="n">TM</span><span class="p">)</span> <span class="n">i5</span><span class="o">-</span><span class="mi">7300</span><span class="n">U</span> <span class="n">CPU</span> <span class="o">@</span> <span class="mf">2.60</span><span class="n">GHz</span>
+<span class="n">Platform</span><span class="p">:</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">CPU</span> <span class="n">Runtime</span> <span class="k">for</span> <span class="n">OpenCL</span><span class="p">(</span><span class="n">TM</span><span class="p">)</span> <span class="n">Applications</span>
+  <span class="n">Device</span><span class="p">:</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Core</span><span class="p">(</span><span class="n">TM</span><span class="p">)</span> <span class="n">i5</span><span class="o">-</span><span class="mi">7300</span><span class="n">U</span> <span class="n">CPU</span> <span class="o">@</span> <span class="mf">2.60</span><span class="n">GHz</span>
+<span class="n">Platform</span><span class="p">:</span> <span class="n">SYCL</span> <span class="n">host</span> <span class="n">platform</span>
+  <span class="n">Device</span><span class="p">:</span> <span class="n">SYCL</span> <span class="n">host</span> <span class="n">device</span>
+</pre></div>
+</div>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">platform</span><span class="p">();</span>
+<span class="n">explicit</span> <span class="n">platform</span><span class="p">(</span><span class="n">cl_platform_id</span> <span class="n">platformID</span><span class="p">);</span>
+<span class="n">explicit</span> <span class="n">platform</span><span class="p">(</span><span class="n">const</span> <span class="n">device_selector</span> <span class="o">&amp;</span><span class="n">deviceSelector</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Construct a SYCL platform instance.</p>
+<p>The default constructor creates a host platform. When passed a
+<code class="docutils literal notranslate"><span class="pre">cl_platform_id</span></code>, an OpenCL|trade| platform is used to construct the
+platform. The <code class="docutils literal notranslate"><span class="pre">cl_platform_id</span></code> is retained and available via
+<a class="reference internal" href="#get">get</a>. When passed a <a class="reference internal" href="device-selector.html#device-selector"><span class="std std-ref">device_selector</span></a>, a platform is constructed
+that includes the preferred device.</p>
+</div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cl_platform_id</span> <span class="n">get</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns the OpenCL device associated with the platform.</p>
+<p>Only call this when the platform constructor was passed a
+<code class="docutils literal notranslate"><span class="pre">cl_platform_id</span></code>.</p>
+</div>
+<div class="section" id="get-devices">
+<span id="platform-get-devices"></span><h3>get_devices<a class="headerlink" href="#get-devices" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vector_class</span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span> <span class="n">get_devices</span><span class="p">(</span>
+   <span class="n">info</span><span class="p">::</span><span class="n">device_type</span> <span class="o">=</span> <span class="n">info</span><span class="p">::</span><span class="n">device_type</span><span class="p">::</span><span class="nb">all</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns vector of SYCL devices associated with the platform and
+filtered by <a class="reference internal" href="device.html#info-device-type"><span class="std std-ref">device_type</span></a></p>
+<p class="rubric">Example</p>
+<p>See <a class="reference internal" href="#platform-example">platform-example</a>.</p>
+</div>
+<div class="section" id="get-info">
+<span id="platform-get-info"></span><h3>get_info<a class="headerlink" href="#get-info" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span> <span class="n">info</span><span class="p">::</span><span class="n">platform</span> <span class="n">param</span> <span class="o">&gt;</span>
+<span class="n">typename</span> <span class="n">info</span><span class="p">::</span><span class="n">param_traits</span><span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">platform</span><span class="p">,</span> <span class="n">param</span><span class="o">&gt;</span><span class="p">::</span><span class="n">return_type</span> <span class="n">get_info</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns information about the platform as determined by <code class="docutils literal notranslate"><span class="pre">param</span></code>.</p>
+<p>See <a class="reference internal" href="#platform-info">Platform Info</a> for details.</p>
+<p class="rubric">Example</p>
+<p>See <a class="reference internal" href="#platform-example">platform-example</a>.</p>
+</div>
+<div class="section" id="has-extension">
+<span id="platform-has-extension"></span><h3>has_extension<a class="headerlink" href="#has-extension" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">has_extension</span><span class="p">(</span><span class="n">const</span> <span class="n">string_class</span> <span class="o">&amp;</span><span class="n">extension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if the platform has <code class="docutils literal notranslate"><span class="pre">extension</span></code>.</p>
+</div>
+<div class="section" id="is-host">
+<h3>is_host<a class="headerlink" href="#is-host" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_host</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if the platform contains a SYCL host device</p>
+</div>
+<div class="section" id="get-platforms">
+<h3>get_platforms<a class="headerlink" href="#get-platforms" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">vector_class</span><span class="o">&lt;</span><span class="n">platform</span><span class="o">&gt;</span> <span class="n">get_platforms</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Returns a vector_class containing SYCL platforms bound to the system.</p>
+<p class="rubric">Example</p>
+<p>See <a class="reference internal" href="#platform-example">platform-example</a>.</p>
+</div>
+</div>
+<div class="section" id="platform-info">
+<h2>Platform Info<a class="headerlink" href="#platform-info" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">platform</span> <span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">profile</span><span class="p">,</span>
+  <span class="n">version</span><span class="p">,</span>
+  <span class="n">name</span><span class="p">,</span>
+  <span class="n">vendor</span><span class="p">,</span>
+  <span class="n">extensions</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span>
+</pre></div>
+</div>
+<p>Used as a template parameter for <a class="reference internal" href="#get-info">get_info</a> to determine
+the type of information.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 33%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Descriptor</p></th>
+<th class="head"><p>Return type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>profile</p></td>
+<td><p>string_class</p></td>
+<td><p>OpenCL profile</p></td>
+</tr>
+<tr class="row-odd"><td><p>version</p></td>
+<td><p>string_class</p></td>
+<td><p>OpenCL software driver version</p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>string_class</p></td>
+<td><p>Device name of the platform</p></td>
+</tr>
+<tr class="row-odd"><td><p>vendor</p></td>
+<td><p>string_class</p></td>
+<td><p>Vendor name</p></td>
+</tr>
+<tr class="row-even"><td><p>extensions</p></td>
+<td><p>vector_class&lt;string_class&gt;</p></td>
+<td><p>Extension names supported by the platform</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="context.html" class="btn btn-neutral float-right" title="Contexts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="device-selector.html" class="btn btn-neutral float-left" title="Device selectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

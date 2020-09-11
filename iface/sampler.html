@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Samplers &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="malloc_device" href="usm-malloc.html" />
+    <link rel="prev" title="private_memory" href="private_memory.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="buffer.html">Buffers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessors.html">Accessors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="address-space.html">Multipointer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="private_memory.html">private_memory</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Samplers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#address-mode">address_mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filtering-mode">filtering_mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coordinate-normalization-mode">coordinate_normalization_mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sampler">sampler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#constructors">(constructors)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Samplers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/sampler.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="samplers">
+<h1>Samplers<a class="headerlink" href="#samplers" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.7.8</p>
+</div>
+<div class="section" id="address-mode">
+<h2>address_mode<a class="headerlink" href="#address-mode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">addressing_mode</span><span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
+    <span class="n">mirrored_repeat</span><span class="p">,</span>
+    <span class="n">repeat</span><span class="p">,</span>
+    <span class="n">clamp_to_edge</span><span class="p">,</span>
+    <span class="n">clamp</span><span class="p">,</span>
+    <span class="n">none</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering-mode">
+<h2>filtering_mode<a class="headerlink" href="#filtering-mode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">filtering_mode</span><span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
+   <span class="n">nearest</span><span class="p">,</span>
+   <span class="n">linear</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="coordinate-normalization-mode">
+<h2>coordinate_normalization_mode<a class="headerlink" href="#coordinate-normalization-mode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">coordinate_normalization_mode</span> <span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
+   <span class="n">normalized</span><span class="p">,</span>
+   <span class="n">unnormalized</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="api-class section" id="sampler">
+<h2>sampler<a class="headerlink" href="#sampler" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">sampler</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constructors">
+<h2>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sampler</span><span class="p">(</span><span class="n">coordinate_normalization_mode</span> <span class="n">normalizationMode</span><span class="p">,</span>
+        <span class="n">addressing_mode</span> <span class="n">addressingMode</span><span class="p">,</span> <span class="n">filtering_mode</span> <span class="n">filteringMode</span><span class="p">,</span>
+        <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+
+<span class="n">sampler</span><span class="p">(</span><span class="n">cl_sampler</span> <span class="n">clSampler</span><span class="p">,</span> <span class="n">const</span> <span class="n">context</span> <span class="o">&amp;</span><span class="n">syclContext</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="get-address-mode">
+<h3>get_address_mode<a class="headerlink" href="#get-address-mode" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addressing_mode</span> <span class="n">get_addressing_mode</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-filtering-mode">
+<h3>get_filtering_mode<a class="headerlink" href="#get-filtering-mode" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filtering_mode</span> <span class="n">get_filtering_mode</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-coordinate-normalization-mode">
+<h3>get_coordinate_normalization_mode<a class="headerlink" href="#get-coordinate-normalization-mode" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coordinate_normalization_mode</span> <span class="n">get_coordinate_normalization_mode</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usm-malloc.html" class="btn btn-neutral float-right" title="malloc_device" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="private_memory.html" class="btn btn-neutral float-left" title="private_memory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

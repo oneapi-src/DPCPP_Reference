@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DPC++ Reference &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/custom.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Programming Model" href="model/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="language/index.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iface/dpcpp-index.html">Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>DPC++ Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dpc-reference">
+<span id="index"></span><h1>DPC++ Reference<a class="headerlink" href="#dpc-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<span id="introduction-to-oneapi-programming"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Obtaining high compute performance on today’s modern computer
+architectures requires code that is optimized, power efficient, and
+scalable. The demand for high performance continues to increase due to
+needs in AI, video analytics, data analytics, as well as in traditional
+high performance computing (HPC).</p>
+<p>Modern workload diversity has resulted in a need for architectural
+diversity; no single architecture is best for every workload. A mix of
+scalar, vector, matrix, and spatial (SVMS) architectures deployed in
+CPU, GPU, AI, and FPGA <a class="reference internal" href="glossary.html#term-accelerator"><span class="xref std std-term">accelerators</span></a> is required
+to extract best performance.</p>
+<p>Today, coding for CPUs and accelerators requires different languages,
+libraries, and tools. There is limited application code reusability
+across different target architectures.</p>
+<p><a class="reference external" href="https://oneapi.com">oneAPI</a> is a cross-industry initiative for an open, standards-based
+unified programming model that creates a common developer experience
+across compute accelerator architectures. Its objective is to deliver
+an efficient, performant programming model that eliminates the need
+for developers to maintain separate code bases, languages, tools, and
+workflows for each architecture.</p>
+<div class="section" id="overview">
+<span id="oneapi-programming-model-overview"></span><h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>oneAPI consists of Data Parallel C++ (DPC++) and a core set of
+libraries for compute-intensive domains. DPC++ programs accelerate a
+sequential computation by distributing work across the processing
+elements in a device.  DPC++ uses a data parallel programming
+model. The data is distributed across a set of processing elements,
+and each processing element operates on the data in parallel. By using
+a data parallel programming model, the developer is able to scale the
+parallelism with the size of the data.</p>
+<p>A developer can either use DPC++ to explicitly parallelize an
+algorithm, or use a parallel implementation from a oneAPI
+library. oneAPI makes it possible to target CPU, GPU, or FPGA with a
+single implementation by providing consistent interfaces. However,
+some devices may not implement all features. Achieving best
+performance often requires the programmer to tune the code for the
+target architecture. oneAPI libraries are written to achieve best
+performance on all supported architectures without end user tuning.</p>
+<img alt="_images/oneapi-overview.jpg" src="_images/oneapi-overview.jpg" />
+<p>As shown in the figure above, applications that take advantage of the
+oneAPI programming model can execute on multiple target hardware
+platforms ranging from CPU to FPGA.</p>
+</div>
+<div class="section" id="data-parallel-c-dpc">
+<h3>Data Parallel C++ (DPC++)<a class="headerlink" href="#data-parallel-c-dpc" title="Permalink to this headline">¶</a></h3>
+<p>DPC++ is the heart of oneAPI. DPC++ programs are written in ISO C++
+and use the Khronos* <a class="reference external" href="https://www.khronos.org/sycl/">SYCL</a>* parallel programming model to distribute
+computation across processing elements in a device. DPC++ extends SYCL
+with features for performance and productivity.</p>
+<p>DPC++ is <a class="reference internal" href="glossary.html#term-single-source"><span class="xref std std-term">single source</span></a> – device and host code can be included
+in the same source file. A DPC++ compiler generates code for both the
+host and device. Any C++ compiler can compile programs that only use
+the host subset of DPC++.</p>
+<p>In this guide, it is safe to assume that anything that mentions SYCL is also applicable to DPC++. Anything specific to DPC++ will be explicitly mentioned.</p>
+</div>
+<div class="section" id="structure-of-this-document">
+<h3>Structure of This Document<a class="headerlink" href="#structure-of-this-document" title="Permalink to this headline">¶</a></h3>
+<p>This document consists of the following sections:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="model/index.html#oneapi-programming-model"><span class="std std-ref">Programming Model</span></a> describes the high-level concepts
+for the DPC++ programming model and the execution model that it
+depends upon.</p></li>
+<li><p><a class="reference internal" href="iface/dpcpp-index.html#programming-interface"><span class="std std-ref">Interface</span></a> provides a detailed explanation of the
+classes that make up the programming model.</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-use-this-document">
+<h3>How to Use This Document<a class="headerlink" href="#how-to-use-this-document" title="Permalink to this headline">¶</a></h3>
+<p>This document is a reference manual for DPC++. It is intended to be
+the document to consult when you are coding an algorithm in DPC++ and
+need to understand the detailed functionality, usage of an API, or
+some other aspect of DPC++.</p>
+<p>If you want to learn DPC++, the <a class="reference external" href="https://software.seek.intel.com/learn-parallel-programming-dpc-essentials">oneAPI online
+training</a> is more appropriate. The ultimate sources for DPC++
+information are the <a class="reference external" href="https://spec.oneapi.com">oneAPI Specification</a> and the <a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL
+Specification</a>. The specifications are written for implementors of
+oneAPI elements and SYCL compilers/runtimes. The descriptions are more
+precise, but may be difficult to understand if you are not already an
+expert in other aspects of DPC++.</p>
+</div>
+<div class="section" id="related-documentation">
+<h3>Related Documentation<a class="headerlink" href="#related-documentation" title="Permalink to this headline">¶</a></h3>
+<p>The following documents are useful starting points for developers
+getting started with oneAPI projects. This document assumes you already
+have a basic understanding of the oneAPI programming model concepts.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://oneapi.com">oneAPI</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/sycl/">SYCL</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="model/index.html" class="btn btn-neutral float-right" title="Programming Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>group &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="id" href="id.html" />
+    <link rel="prev" title="range" href="range.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="range.html">range</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">group</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-id">get_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-global-range">get_global_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-local-range">get_local_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-group-range">get_group_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-linear-id">get_linear_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parallel-for-work-item">parallel_for_work_item</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mem-fence">mem_fence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#async-work-group-copy">async_work_group_copy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wait-for">wait_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operator">operator[]</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="id.html">id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="item.html">item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="h_item.html">h_item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nd_item.html">nd_item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nd_range.html">nd_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="device-event.html">device_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command-group.html">Command groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command-group-handler.html">Invoking kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html">Kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program.html">Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>group</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/group.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="api-class section" id="group">
+<span id="id1"></span><h1>group<a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="nb">int</span> <span class="n">dimensions</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">group</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 79%" />
+<col style="width: 21%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dimensions</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.10.1.7</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="get-id">
+<h2>get_id<a class="headerlink" href="#get-id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_id</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_id</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-global-range">
+<h2>get_global_range<a class="headerlink" href="#get-global-range" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_global_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_global_range</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-local-range">
+<h2>get_local_range<a class="headerlink" href="#get-local-range" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_local_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_local_range</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-group-range">
+<h2>get_group_range<a class="headerlink" href="#get-group-range" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_group_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">size_t</span> <span class="n">get_group_range</span><span class="p">(</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-linear-id">
+<h2>get_linear_id<a class="headerlink" href="#get-linear-id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_linear_id</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parallel-for-work-item">
+<h2>parallel_for_work_item<a class="headerlink" href="#parallel-for-work-item" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span><span class="n">typename</span> <span class="n">workItemFunctionT</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for_work_item</span><span class="p">(</span><span class="n">workItemFunctionT</span> <span class="n">func</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">template</span><span class="o">&lt;</span><span class="n">typename</span> <span class="n">workItemFunctionT</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for_work_item</span><span class="p">(</span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">logicalRange</span><span class="p">,</span>
+  <span class="n">workItemFunctionT</span> <span class="n">func</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mem-fence">
+<h2>mem_fence<a class="headerlink" href="#mem-fence" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">accessMode</span> <span class="o">=</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span><span class="p">::</span><span class="n">read_write</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">mem_fence</span><span class="p">(</span><span class="n">access</span><span class="p">::</span><span class="n">fence_space</span> <span class="n">accessSpace</span> <span class="o">=</span>
+  <span class="n">access</span><span class="p">::</span><span class="n">fence_space</span><span class="p">::</span><span class="n">global_and_local</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="async-work-group-copy">
+<h2>async_work_group_copy<a class="headerlink" href="#async-work-group-copy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="o">&gt;</span>
+<span class="n">device_event</span> <span class="n">async_work_group_copy</span><span class="p">(</span><span class="n">local_ptr</span><span class="o">&lt;</span><span class="n">dataT</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">,</span>
+  <span class="n">global_ptr</span><span class="o">&lt;</span><span class="n">dataT</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">numElements</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="o">&gt;</span>
+<span class="n">device_event</span> <span class="n">async_work_group_copy</span><span class="p">(</span><span class="n">global_ptr</span><span class="o">&lt;</span><span class="n">dataT</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">,</span>
+  <span class="n">local_ptr</span><span class="o">&lt;</span><span class="n">dataT</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">numElements</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="o">&gt;</span>
+<span class="n">device_event</span> <span class="n">async_work_group_copy</span><span class="p">(</span><span class="n">local_ptr</span><span class="o">&lt;</span><span class="n">dataT</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">,</span>
+  <span class="n">global_ptr</span><span class="o">&lt;</span><span class="n">dataT</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">numElements</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">srcStride</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="o">&gt;</span>
+<span class="n">device_event</span> <span class="n">async_work_group_copy</span><span class="p">(</span><span class="n">global_ptr</span><span class="o">&lt;</span><span class="n">dataT</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">,</span>
+  <span class="n">local_ptr</span><span class="o">&lt;</span><span class="n">dataT</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">numElements</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">destStride</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wait-for">
+<h2>wait_for<a class="headerlink" href="#wait-for" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span><span class="o">...</span> <span class="n">eventTN</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">wait_for</span><span class="p">(</span><span class="n">eventTN</span><span class="o">...</span> <span class="n">events</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operator">
+<h2>operator[]<a class="headerlink" href="#operator" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">operator</span><span class="p">[](</span><span class="nb">int</span> <span class="n">dimension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="id.html" class="btn btn-neutral float-right" title="id" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="range.html" class="btn btn-neutral float-left" title="range" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

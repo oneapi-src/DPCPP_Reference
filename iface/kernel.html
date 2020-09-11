@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kernel &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Program" href="program.html" />
+    <link rel="prev" title="Invoking kernels" href="command-group-handler.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="range.html">range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="group.html">group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id.html">id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="item.html">item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="h_item.html">h_item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nd_item.html">nd_item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nd_range.html">nd_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="device-event.html">device_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command-group.html">Command groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command-group-handler.html">Invoking kernels</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Kernel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#info-kernel">info::kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#info-kernel-work-group">info::kernel_work_group</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="program.html">Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Kernel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/kernel.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kernel">
+<h1>Kernel<a class="headerlink" href="#kernel" title="Permalink to this headline">¶</a></h1>
+<div class="api-class section" id="id1">
+<span id="id2"></span><h2>kernel<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">kernel</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Abstraction of a kernel object.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.12</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kernel</span><span class="p">(</span><span class="n">cl_kernel</span> <span class="n">clKernel</span><span class="p">,</span> <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">syclContext</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Constructs a SYCL kernel instance from an OpenCL kernel.</p>
+</div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cl_kernel</span> <span class="n">get</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns OpenCL kernel associated with the SYCL kernel.</p>
+</div>
+<div class="section" id="is-host">
+<h3>is_host<a class="headerlink" href="#is-host" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_host</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Return true if this SYCL kernel is a host kernel.</p>
+</div>
+<div class="section" id="get-context">
+<h3>get_context<a class="headerlink" href="#get-context" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="n">get_context</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns context associated with the kernel.</p>
+</div>
+<div class="section" id="get-program">
+<h3>get_program<a class="headerlink" href="#get-program" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">program</span> <span class="n">get_program</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns program that this kernel is part of.</p>
+</div>
+<div class="section" id="get-info">
+<h3>get_info<a class="headerlink" href="#get-info" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">kernel</span> <span class="n">param</span><span class="o">&gt;</span>
+<span class="n">typename</span> <span class="n">info</span><span class="p">::</span><span class="n">param_traits</span><span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">kernel</span><span class="p">,</span> <span class="n">param</span><span class="o">&gt;</span><span class="p">::</span><span class="n">return_type</span>
+<span class="n">get_info</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 51%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>param</p></td>
+<td><p>See <a class="reference internal" href="#info-kernel">info::kernel</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Returns information about the kernel</p>
+</div>
+<div class="section" id="get-work-group-info">
+<h3>get_work_group_info<a class="headerlink" href="#get-work-group-info" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">kernel_work_group</span> <span class="n">param</span><span class="o">&gt;</span>
+<span class="n">typename</span> <span class="n">info</span><span class="p">::</span><span class="n">param_traits</span><span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">kernel_work_group</span><span class="p">,</span> <span class="n">param</span><span class="o">&gt;</span><span class="p">::</span><span class="n">return_type</span>
+<span class="n">get_work_group_info</span><span class="p">(</span><span class="n">const</span> <span class="n">device</span> <span class="o">&amp;</span><span class="n">dev</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 63%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>param</p></td>
+<td><p>See <a class="reference internal" href="#info-kernel-work-group">info::kernel_work_group</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Returns information about the work group</p>
+</div>
+</div>
+<div class="section" id="info-kernel">
+<h2><a class="reference external" href="info::kernel">info::kernel</a><a class="headerlink" href="#info-kernel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">kernel</span><span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+    <span class="n">function_name</span><span class="p">,</span>
+    <span class="n">num_args</span><span class="p">,</span>
+    <span class="n">context</span><span class="p">,</span>
+    <span class="n">program</span><span class="p">,</span>
+    <span class="n">reference_count</span><span class="p">,</span>
+    <span class="n">attributes</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="info-kernel-work-group">
+<h2><a class="reference external" href="info::kernel_work_group">info::kernel_work_group</a><a class="headerlink" href="#info-kernel-work-group" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">kernel_work_group</span><span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+    <span class="n">global_work_size</span><span class="p">,</span>
+    <span class="n">work_group_size</span><span class="p">,</span>
+    <span class="n">compile_work_group_size</span><span class="p">,</span>
+    <span class="n">preferred_work_group_size_multiple</span><span class="p">,</span>
+    <span class="n">private_mem_size</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="program.html" class="btn btn-neutral float-right" title="Program" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="command-group-handler.html" class="btn btn-neutral float-left" title="Invoking kernels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

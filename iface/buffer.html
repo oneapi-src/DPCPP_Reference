@@ -1,0 +1,680 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Buffers &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Images" href="image.html" />
+    <link rel="prev" title="Events" href="event.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Buffers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#buffer">buffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#buffer-properties">Buffer properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessors.html">Accessors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="address-space.html">Multipointer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="private_memory.html">private_memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sampler.html">Samplers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Buffers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/buffer.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="buffers">
+<span id="iface-buffers"></span><h1>Buffers<a class="headerlink" href="#buffers" title="Permalink to this headline">¶</a></h1>
+<div class="api-class section" id="buffer">
+<h2>buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dimensions</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="n">typename</span> <span class="n">AllocatorT</span> <span class="o">=</span> <span class="n">cl</span><span class="p">::</span><span class="n">sycl</span><span class="p">::</span><span class="n">buffer_allocator</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">buffer</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 68%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>T</p></td>
+<td><p>Type of data in buffer</p></td>
+</tr>
+<tr class="row-even"><td><p>dimensions</p></td>
+<td><p>Dimensionality of data: 1, 2, or 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>AllocatorT</p></td>
+<td><p>Allocator for buffer data</p></td>
+</tr>
+</tbody>
+</table>
+<p>Buffers are containers for data that can be read/written by both
+kernel and host.  Data in a buffer cannot be directly via
+pointers. Instead, a program creates an <a class="reference internal" href="buffer-accessor.html#buffer-accessor"><span class="std std-ref">Buffer accessor</span></a> that
+references the buffer. The accessor provides array-like interfaces to
+read/write actual data.  Accessors indicate when they read or write
+data. When a program creates an accessor for a buffer, the SYCL
+runtime copies the data to where it is needed, either the host or the
+device. If the accessor is part of a device command group, then the
+runtime delays execution of the kernel until the data movement is
+complete. If the host creates an accessor, it will pause until the
+data is available on the host. As a result data and kernels can
+execute asynchronously and in parallel, only requiring the program to
+specify the data dependencies.</p>
+<p>Initialization</p>
+<blockquote>
+<div><p>Buffers can be automatically initialized via host data, iterator, or
+as a slice of another buffer. The constructor determines the
+initialization method.</p>
+</div></blockquote>
+<p>Write back</p>
+<blockquote>
+<div><p>The destructor for a buffer can optionally write the data back to
+host memory, either by pointer or iterator. <a class="reference internal" href="#set-final-data">set_final_data</a> and
+<a class="reference internal" href="#set-write-back">set_write_back</a> control the write back of data.</p>
+</div></blockquote>
+<p>Memory allocation</p>
+<blockquote>
+<div><p>The SYCL runtimes uses the default allocator for buffer memory
+allocation, unless the constructor provides an allocator.</p>
+</div></blockquote>
+<p class="rubric">Member types</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>value_type</p></td>
+<td><p>type of buffer element</p></td>
+</tr>
+<tr class="row-even"><td><p>reference</p></td>
+<td><p>reference type of buffer element</p></td>
+</tr>
+<tr class="row-odd"><td><p>const_reference</p></td>
+<td><p>const reference type of buffer element</p></td>
+</tr>
+<tr class="row-even"><td><p>allocator_type</p></td>
+<td><p>type of allocator for buffer data</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.7.2</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="constructors">
+<span id="buffer-constructors"></span><h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block">buffer(const range&lt;dimensions&gt; &amp;bufferRange,
+       const property_list &amp;propList = {});
+buffer(const range&lt;dimensions&gt; &amp;bufferRange, AllocatorT allocator,
+       const property_list &amp;propList = {});
+buffer(T <em>hostData, const range&lt;dimensions&gt; &amp;bufferRange,
+       const property_list &amp;propList = {});
+buffer(T *hostData, const range&lt;dimensions&gt; &amp;bufferRange,
+       AllocatorT allocator, const property_list &amp;propList = {});
+buffer(const T *hostData, const range&lt;dimensions&gt; &amp;bufferRange,
+       const property_list &amp;propList = {});
+buffer(const T *hostData, const range&lt;dimensions&gt; &amp;bufferRange,
+       AllocatorT allocator, const property_list &amp;propList = {});
+buffer(const shared_ptr_class&lt;T&gt; &amp;hostData,
+       const range&lt;dimensions&gt; &amp;bufferRange, AllocatorT allocator,
+       const property_list &amp;propList = {});
+buffer(const shared_ptr_class&lt;T&gt; &amp;hostData,
+       const range&lt;dimensions&gt; &amp;bufferRange,
+       const property_list &amp;propList = {});
+buffer(buffer&lt;T, dimensions, AllocatorT&gt; b, const id&lt;dimensions&gt; &amp;baseIndex,
+       const range&lt;dimensions&gt; &amp;subRange);
+
+*Available only when:
+ dimensions == 1</em>
+
+template &lt;class InputIterator&gt;
+buffer&lt;T, 1&gt;(InputIterator first, InputIterator last, AllocatorT allocator,
+             const property_list &amp;propList = {});
+template &lt;class InputIterator&gt;
+buffer&lt;T, 1&gt;(InputIterator first, InputIterator last,
+             const property_list &amp;propList = {});
+buffer(cl_mem clMemObject, const context &amp;syclContext,
+       event availableEvent = {});</pre>
+<p>Construct a buffer.</p>
+<p>Buffers can be initialized by a host data pointer. While the buffer
+exists, it <em>owns</em> the host data and direct access of the host data
+pointer during that time is undefined. The SYCL runtime performs a
+write back of the buffer data back to the host data pointer when the
+buffer is destroyed.  Buffers can also be initialized as a slice of
+another buffer, by specifying the origin of the data and the
+dimensions.</p>
+<p>A constructor can also accept cl_mem or iterators to initialize a
+buffer.</p>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 74%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>InputIterator</p></td>
+<td><p>type of iterator used to initialize the buffer</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bufferRange</p></td>
+<td><p><a class="reference internal" href="range.html#range"><span class="std std-ref">range</span></a> specifies the dimensions of the buffer</p></td>
+</tr>
+<tr class="row-even"><td><p>allocator</p></td>
+<td><p>Allocator for buffer data</p></td>
+</tr>
+<tr class="row-odd"><td><p>propList</p></td>
+<td><p>See <a class="reference internal" href="#buffer-properties">Buffer properties</a></p></td>
+</tr>
+<tr class="row-even"><td><p>hostData</p></td>
+<td><p>Pointer to host memory to hold data</p></td>
+</tr>
+<tr class="row-odd"><td><p>first</p></td>
+<td><p>Iterator to initialize buffer</p></td>
+</tr>
+<tr class="row-even"><td><p>last</p></td>
+<td><p>Iterator to initialize buffer</p></td>
+</tr>
+<tr class="row-odd"><td><p>b</p></td>
+<td><p>Buffer used to initialize this buffer</p></td>
+</tr>
+<tr class="row-even"><td><p>baseIndx</p></td>
+<td><p>Origin of sub-buffer</p></td>
+</tr>
+<tr class="row-odd"><td><p>subRange</p></td>
+<td><p>Dimensions of sub-buffer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-range">
+<h3>get_range<a class="headerlink" href="#get-range" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns the dimensions of the buffer.</p>
+</div>
+<div class="section" id="get-count">
+<h3>get_count<a class="headerlink" href="#get-count" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_count</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns the total number of elements in the buffer.</p>
+</div>
+<div class="section" id="get-size">
+<h3>get_size<a class="headerlink" href="#get-size" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_size</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns the size of the buffer storage in bytes.</p>
+</div>
+<div class="section" id="get-allocator">
+<h3>get_allocator<a class="headerlink" href="#get-allocator" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AllocatorT</span> <span class="n">get_allocator</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns the allocator provided to the buffer.</p>
+</div>
+<div class="section" id="get-access">
+<span id="buffer-get-access"></span><h3>get_access<a class="headerlink" href="#get-access" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">target</span> <span class="o">=</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span><span class="p">::</span><span class="n">global_buffer</span><span class="o">&gt;</span>
+<span class="n">accessor</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">target</span><span class="o">&gt;</span> <span class="n">get_access</span><span class="p">(</span>
+    <span class="n">handler</span> <span class="o">&amp;</span><span class="n">commandGroupHandler</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode</span><span class="o">&gt;</span>
+<span class="n">accessor</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span><span class="p">::</span><span class="n">host_buffer</span><span class="o">&gt;</span> <span class="n">get_access</span><span class="p">();</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">target</span> <span class="o">=</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span><span class="p">::</span><span class="n">global_buffer</span><span class="o">&gt;</span>
+<span class="n">accessor</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">target</span><span class="o">&gt;</span> <span class="n">get_access</span><span class="p">(</span>
+    <span class="n">handler</span> <span class="o">&amp;</span><span class="n">commandGroupHandler</span><span class="p">,</span> <span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">accessRange</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">accessOffset</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode</span><span class="o">&gt;</span>
+<span class="n">accessor</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span><span class="p">::</span><span class="n">host_buffer</span><span class="o">&gt;</span> <span class="n">get_access</span><span class="p">(</span>
+  <span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">accessRange</span><span class="p">,</span> <span class="nb">id</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">accessOffset</span> <span class="o">=</span> <span class="p">{});</span>
+</pre></div>
+</div>
+<p>Returns a accessor to the buffer.</p>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>mode</p></td>
+<td><p>See <a class="reference internal" href="accessor-enums.html#access-mode"><span class="std std-ref">mode</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>target</p></td>
+<td><p>See <a class="reference internal" href="accessor-enums.html#access-target"><span class="std std-ref">target</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>commandGroupHandler</p></td>
+<td><p>Command group that uses the accessor</p></td>
+</tr>
+<tr class="row-even"><td><p>accessRange</p></td>
+<td><p>Dimensions of the sub-buffer that is accessed</p></td>
+</tr>
+<tr class="row-odd"><td><p>accessOffset</p></td>
+<td><p>Origin of the sub-buffer that is accessed</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="set-final-data">
+<h3>set_final_data<a class="headerlink" href="#set-final-data" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">Destination</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="n">nullptr_t</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">set_final_data</span><span class="p">(</span><span class="n">Destination</span> <span class="n">finalData</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Destination</p></td>
+<td><p>std::weak_ptr&lt;T&gt; or output iterator</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>finalData</p></td>
+<td><p>Indicates where data is copied at destruction time</p></td>
+</tr>
+</tbody>
+</table>
+<p>Set the final data location. Final data controls the location for
+write back when the buffer is destroyed.</p>
+</div>
+<div class="section" id="set-write-back">
+<h3>set_write_back<a class="headerlink" href="#set-write-back" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">set_write_back</span><span class="p">(</span><span class="nb">bool</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 56%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>flag</p></td>
+<td><p>True to force write back</p></td>
+</tr>
+</tbody>
+</table>
+<p>Set the write back.</p>
+</div>
+<div class="section" id="is-sub-buffer">
+<h3>is_sub_buffer<a class="headerlink" href="#is-sub-buffer" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_sub_buffer</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if this is a sub-buffer.</p>
+</div>
+<div class="section" id="reinterpret">
+<h3>reinterpret<a class="headerlink" href="#reinterpret" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">ReinterpretT</span><span class="p">,</span> <span class="nb">int</span> <span class="n">ReinterpretDim</span><span class="o">&gt;</span>
+<span class="n">buffer</span><span class="o">&lt;</span><span class="n">ReinterpretT</span><span class="p">,</span> <span class="n">ReinterpretDim</span><span class="p">,</span> <span class="n">AllocatorT</span><span class="o">&gt;</span>
+<span class="n">reinterpret</span><span class="p">(</span><span class="nb">range</span><span class="o">&lt;</span><span class="n">ReinterpretDim</span><span class="o">&gt;</span> <span class="n">reinterpretRange</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 58%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ReinterpretT</p></td>
+<td><p>Type of new buffer element</p></td>
+</tr>
+<tr class="row-even"><td><p>ReinterpretDim</p></td>
+<td><p>Dimensions of new buffer</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ReinterpretRange</p></td>
+<td><p>Dimensionality of new buffer</p></td>
+</tr>
+</tbody>
+</table>
+<p>Creates a new buffer with the requested element type and
+dimensionality, containing the data of the passed buffer or
+sub-buffer.</p>
+<p class="rubric">Exceptions</p>
+<dl class="simple">
+<dt>errc::invalid_object_error</dt><dd><p>Size in bytes of new buffer does not match original buffer.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="buffer-properties">
+<h2>Buffer properties<a class="headerlink" href="#buffer-properties" title="Permalink to this headline">¶</a></h2>
+<div class="api-class section" id="use-host-ptr">
+<h3>use_host_ptr<a class="headerlink" href="#use-host-ptr" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">use_host_ptr</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">property</span><span class="p">::</span><span class="n">buffer</span>
+</pre></div>
+</div>
+<p>Use the provided host pointer and do not allocate new data on the
+host.</p>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="use-host-ptr-constructors">
+<span id="id1"></span><h4>(constructors)<a class="headerlink" href="#use-host-ptr-constructors" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">use_host_ptr</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="api-class section" id="use-mutex">
+<h3>use_mutex<a class="headerlink" href="#use-mutex" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">use_mutex</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">property</span><span class="p">::</span><span class="n">buffer</span>
+</pre></div>
+</div>
+<p>Adds the requirement that the memory owned by the SYCL buffer can be
+shared with the application via a std::mutex provided to the property.</p>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="use-mutex-constructors">
+<span id="id2"></span><h4>(constructors)<a class="headerlink" href="#use-mutex-constructors" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">use_mutex</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-mutex-ptr">
+<h4>get_mutex_ptr<a class="headerlink" href="#get-mutex-ptr" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mutex_class</span> <span class="o">*</span><span class="n">get_mutex_ptr</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="context-bound">
+<h3>context_bound<a class="headerlink" href="#context-bound" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context_bound</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">property</span><span class="p">::</span><span class="n">buffer</span>
+</pre></div>
+</div>
+<p>The buffer can only be associated with a single SYCL context provided
+to the property.</p>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="context-bound-constructors">
+<span id="id3"></span><h4>(constructors)<a class="headerlink" href="#context-bound-constructors" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">use_mutex</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-context">
+<h4>get_context<a class="headerlink" href="#get-context" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="n">get_context</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="image.html" class="btn btn-neutral float-right" title="Images" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="event.html" class="btn btn-neutral float-left" title="Events" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

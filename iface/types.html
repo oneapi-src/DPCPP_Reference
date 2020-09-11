@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Synchronization types &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Streams" href="stream.html" />
+    <link rel="prev" title="Vector types" href="vector-types.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Synchronization types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#access-fence-space">access::fence_space</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#memory-order">memory_order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atomic">atomic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Synchronization types</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/types.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="synchronization-types">
+<h1>Synchronization types<a class="headerlink" href="#synchronization-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="access-fence-space">
+<h2>access::fence_space<a class="headerlink" href="#access-fence-space" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">fence_space</span> <span class="p">:</span> <span class="n">char</span> <span class="p">{</span>
+    <span class="n">local_space</span><span class="p">,</span>
+    <span class="n">global_space</span><span class="p">,</span>
+    <span class="n">global_and_local</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="memory-order">
+<h2>memory_order<a class="headerlink" href="#memory-order" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">memory_order</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+    <span class="n">relaxed</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="api-class section" id="atomic">
+<h2>atomic<a class="headerlink" href="#atomic" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">address_space</span> <span class="n">addressSpace</span> <span class="o">=</span> <span class="n">access</span><span class="p">::</span><span class="n">address_space</span><span class="p">::</span><span class="n">global_space</span>
+         <span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">atomic</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">pointerT</span><span class="o">&gt;</span>
+<span class="n">atomic</span><span class="p">(</span><span class="n">multi_ptr</span><span class="o">&lt;</span><span class="n">pointerT</span><span class="p">,</span> <span class="n">addressSpace</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="store">
+<h3>store<a class="headerlink" href="#store" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">store</span><span class="p">(</span><span class="n">T</span> <span class="n">operand</span><span class="p">,</span> <span class="n">memory_order</span> <span class="n">memoryOrder</span> <span class="o">=</span> <span class="n">memory_order</span><span class="p">::</span><span class="n">relaxed</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load">
+<h3>load<a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="n">load</span><span class="p">(</span><span class="n">memory_order</span> <span class="n">memoryOrder</span> <span class="o">=</span> <span class="n">memory_order</span><span class="p">::</span><span class="n">relaxed</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exchange">
+<h3>exchange<a class="headerlink" href="#exchange" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="n">exchange</span><span class="p">(</span><span class="n">T</span> <span class="n">operand</span><span class="p">,</span> <span class="n">memory_order</span> <span class="n">memoryOrder</span> <span class="o">=</span> <span class="n">memory_order</span><span class="p">::</span><span class="n">relaxed</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compare-exchange-strong">
+<h3>compare_exchange_strong<a class="headerlink" href="#compare-exchange-strong" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ T != float</em>
+
+bool compare_exchange_strong(T &amp;expected, T desired,
+                             memory_order successMemoryOrder = memory_order::relaxed,
+                             memory_order failMemoryOrder = memory_order::relaxed);</pre>
+</div>
+<div class="section" id="fetch-add">
+<h3>fetch_add<a class="headerlink" href="#fetch-add" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ T != float</em>
+
+T fetch_add(T operand, memory_order memoryOrder = memory_order::relaxed);</pre>
+</div>
+<div class="section" id="fetch-sub">
+<h3>fetch_sub<a class="headerlink" href="#fetch-sub" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ T != float</em>
+
+T fetch_sub(T operand, memory_order memoryOrder = memory_order::relaxed);</pre>
+</div>
+<div class="section" id="fetch-and">
+<h3>fetch_and<a class="headerlink" href="#fetch-and" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ T != float</em>
+
+T fetch_and(T operand, memory_order memoryOrder = memory_order::relaxed);</pre>
+</div>
+<div class="section" id="fetch-or">
+<h3>fetch_or<a class="headerlink" href="#fetch-or" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ T != float</em>
+
+T fetch_or(T operand, memory_order memoryOrder = memory_order::relaxed);</pre>
+</div>
+<div class="section" id="fetch-xor">
+<h3>fetch_xor<a class="headerlink" href="#fetch-xor" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ T != float</em>
+
+T fetch_xor(T operand, memory_order memoryOrder = memory_order::relaxed);</pre>
+</div>
+<div class="section" id="fetch-min">
+<h3>fetch_min<a class="headerlink" href="#fetch-min" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ T != float</em>
+
+T fetch_min(T operand, memory_order memoryOrder = memory_order::relaxed);</pre>
+</div>
+<div class="section" id="fetch-max">
+<h3>fetch_max<a class="headerlink" href="#fetch-max" title="Permalink to this headline">¶</a></h3>
+<pre class="literal-block"><em>Available only when:
+ T != float</em>
+
+T fetch_max(T operand, memory_order memoryOrder = memory_order::relaxed);</pre>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stream.html" class="btn btn-neutral float-right" title="Streams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vector-types.html" class="btn btn-neutral float-left" title="Vector types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,563 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Invoking kernels &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Kernel" href="kernel.html" />
+    <link rel="prev" title="Command groups" href="command-group.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="range.html">range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="group.html">group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id.html">id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="item.html">item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="h_item.html">h_item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nd_item.html">nd_item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nd_range.html">nd_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="device-event.html">device_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command-group.html">Command groups</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Invoking kernels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#handler">handler</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html">Kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program.html">Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Invoking kernels</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/command-group-handler.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="invoking-kernels">
+<h1>Invoking kernels<a class="headerlink" href="#invoking-kernels" title="Permalink to this headline">¶</a></h1>
+<div class="api-class section" id="handler">
+<span id="id1"></span><h2>handler<a class="headerlink" href="#handler" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">handler</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">handler</span></code> defines the interface to invoke kernels by submitting
+commands to a queue.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">handler</span></code> can only be constructed by the SYCL runtime and is
+passed as an argument to the command group function. The command group
+function is an argument to <a class="reference internal" href="queue.html#queue-submit"><span class="std std-ref">submit</span></a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.10.4</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="require">
+<h3>require<a class="headerlink" href="#require" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">accessMode</span><span class="p">,</span>
+  <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">accessTarget</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">require</span><span class="p">(</span><span class="n">accessor</span><span class="o">&lt;</span><span class="n">dataT</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">accessMode</span><span class="p">,</span> <span class="n">accessTarget</span><span class="p">,</span>
+             <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span><span class="p">::</span><span class="n">true_t</span><span class="o">&gt;</span> <span class="n">acc</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Adds a requirement before a device may execute a kernel.</p>
+</div>
+<div class="section" id="set-arg">
+<h3>set_arg<a class="headerlink" href="#set-arg" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">set_arg</span><span class="p">(</span><span class="nb">int</span> <span class="n">argIndex</span><span class="p">,</span> <span class="n">T</span> <span class="o">&amp;&amp;</span> <span class="n">arg</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Sets a kernel argument.</p>
+</div>
+<div class="section" id="set-args">
+<h3>set_args<a class="headerlink" href="#set-args" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span><span class="o">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">set_args</span><span class="p">(</span><span class="n">Ts</span> <span class="o">&amp;&amp;...</span> <span class="n">args</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Sets all kernel arguments.</p>
+</div>
+<div class="section" id="single-task">
+<h3>single_task<a class="headerlink" href="#single-task" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">KernelName</span><span class="p">,</span> <span class="n">typename</span> <span class="n">KernelType</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">single_task</span><span class="p">(</span><span class="n">KernelType</span> <span class="n">kernelFunc</span><span class="p">);</span>
+
+<span class="n">void</span> <span class="n">single_task</span><span class="p">(</span><span class="n">kernel</span> <span class="n">syclKernel</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Defines and invokes a kernel function.</p>
+</div>
+<div class="section" id="parallel-for">
+<span id="handler-parallel-for"></span><h3>parallel_for<a class="headerlink" href="#parallel-for" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">KernelName</span><span class="p">,</span> <span class="n">typename</span> <span class="n">KernelType</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dimensions</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for</span><span class="p">(</span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">numWorkItems</span><span class="p">,</span> <span class="n">KernelType</span> <span class="n">kernelFunc</span><span class="p">);</span>
+
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">KernelName</span><span class="p">,</span> <span class="n">typename</span> <span class="n">KernelType</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dimensions</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for</span><span class="p">(</span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">numWorkItems</span><span class="p">,</span>
+                  <span class="nb">id</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">workItemOffset</span><span class="p">,</span> <span class="n">KernelType</span> <span class="n">kernelFunc</span><span class="p">);</span>
+
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">KernelName</span><span class="p">,</span> <span class="n">typename</span> <span class="n">KernelType</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dimensions</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for</span><span class="p">(</span><span class="n">nd_range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">ndRange</span><span class="p">,</span> <span class="n">KernelType</span> <span class="n">kernelFunc</span><span class="p">);</span>
+
+<span class="n">template</span> <span class="o">&lt;</span><span class="nb">int</span> <span class="n">dimensions</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for</span><span class="p">(</span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">numWorkItems</span><span class="p">,</span> <span class="n">kernel</span> <span class="n">syclKernel</span><span class="p">);</span>
+
+<span class="n">template</span> <span class="o">&lt;</span><span class="nb">int</span> <span class="n">dimensions</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for</span><span class="p">(</span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">numWorkItems</span><span class="p">,</span>
+                  <span class="nb">id</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">workItemOffset</span><span class="p">,</span> <span class="n">kernel</span> <span class="n">syclKernel</span><span class="p">);</span>
+
+<span class="n">template</span> <span class="o">&lt;</span><span class="nb">int</span> <span class="n">dimensions</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for</span><span class="p">(</span><span class="n">nd_range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">ndRange</span><span class="p">,</span> <span class="n">kernel</span> <span class="n">syclKernel</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Invokes a kernel function for a <a class="reference internal" href="range.html#range"><span class="std std-ref">range</span></a> or <a class="reference internal" href="nd_range.html#nd-range"><span class="std std-ref">nd_range</span></a>.</p>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>numWorkItems</p></td>
+<td><p>Range for work items</p></td>
+</tr>
+<tr class="row-even"><td><p>workItemOffset</p></td>
+<td><p>Offset into range for work items</p></td>
+</tr>
+<tr class="row-odd"><td><p>kernelFunc</p></td>
+<td><p>Kernel function</p></td>
+</tr>
+<tr class="row-even"><td><p>syclKernel</p></td>
+<td><p>See <a class="reference internal" href="kernel.html#id1"><span class="std std-ref">kernel</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>ndRange</p></td>
+<td><p>See <a class="reference internal" href="nd_range.html#nd-range"><span class="std std-ref">nd_range</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="parallel-for-work-group">
+<h3>parallel_for_work_group<a class="headerlink" href="#parallel-for-work-group" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">KernelName</span><span class="p">,</span> <span class="n">typename</span> <span class="n">WorkgroupFunctionType</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dimensions</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for_work_group</span><span class="p">(</span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">numWorkGroups</span><span class="p">,</span>
+                             <span class="n">WorkgroupFunctionType</span> <span class="n">kernelFunc</span><span class="p">);</span>
+
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">KernelName</span><span class="p">,</span> <span class="n">typename</span> <span class="n">WorkgroupFunctionType</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dimensions</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">parallel_for_work_group</span><span class="p">(</span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">numWorkGroups</span><span class="p">,</span>
+                             <span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">workGroupSize</span><span class="p">,</span>
+                             <span class="n">WorkgroupFunctionType</span> <span class="n">kernelFunc</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Outer invocation in a hierarchical invocation of a kernel.</p>
+<p>The kernel function is executed once per work group.</p>
+</div>
+<div class="section" id="copy">
+<h3>copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T_src</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dim_src</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode_src</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">tgt_src</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder</span><span class="p">,</span> <span class="n">typename</span> <span class="n">T_dest</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">copy</span><span class="p">(</span><span class="n">accessor</span><span class="o">&lt;</span><span class="n">T_src</span><span class="p">,</span> <span class="n">dim_src</span><span class="p">,</span> <span class="n">mode_src</span><span class="p">,</span> <span class="n">tgt_src</span><span class="p">,</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">,</span>
+          <span class="n">shared_ptr_class</span><span class="o">&lt;</span><span class="n">T_dest</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T_src</span><span class="p">,</span>
+          <span class="n">typename</span> <span class="n">T_dest</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dim_dest</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode_dest</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">tgt_dest</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">copy</span><span class="p">(</span><span class="n">shared_ptr_class</span><span class="o">&lt;</span><span class="n">T_src</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">,</span>
+          <span class="n">accessor</span><span class="o">&lt;</span><span class="n">T_dest</span><span class="p">,</span> <span class="n">dim_dest</span><span class="p">,</span> <span class="n">mode_dest</span><span class="p">,</span> <span class="n">tgt_dest</span><span class="p">,</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T_src</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dim_src</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode_src</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">tgt_src</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder</span><span class="p">,</span>
+          <span class="n">typename</span> <span class="n">T_dest</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">copy</span><span class="p">(</span><span class="n">accessor</span><span class="o">&lt;</span><span class="n">T_src</span><span class="p">,</span> <span class="n">dim_src</span><span class="p">,</span> <span class="n">mode_src</span><span class="p">,</span> <span class="n">tgt_src</span><span class="p">,</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">,</span>
+          <span class="n">T_dest</span> <span class="o">*</span><span class="n">dest</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T_src</span><span class="p">,</span>
+          <span class="n">typename</span> <span class="n">T_dest</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dim_dest</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode_dest</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">tgt_dest</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">copy</span><span class="p">(</span><span class="n">const</span> <span class="n">T_src</span> <span class="o">*</span><span class="n">src</span><span class="p">,</span>
+          <span class="n">accessor</span><span class="o">&lt;</span><span class="n">T_dest</span><span class="p">,</span> <span class="n">dim_dest</span><span class="p">,</span> <span class="n">mode_dest</span><span class="p">,</span> <span class="n">tgt_dest</span><span class="p">,</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T_src</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dim_src</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode_src</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">tgt_src</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder_src</span><span class="p">,</span>
+          <span class="n">typename</span> <span class="n">T_dest</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dim_dest</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode_dest</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">tgt_dest</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder_dest</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">copy</span><span class="p">(</span><span class="n">accessor</span><span class="o">&lt;</span><span class="n">T_src</span><span class="p">,</span> <span class="n">dim_src</span><span class="p">,</span> <span class="n">mode_src</span><span class="p">,</span> <span class="n">tgt_src</span><span class="p">,</span> <span class="n">isPlaceholder_src</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">,</span>
+          <span class="n">accessor</span><span class="o">&lt;</span><span class="n">T_dest</span><span class="p">,</span> <span class="n">dim_dest</span><span class="p">,</span> <span class="n">mode_dest</span><span class="p">,</span> <span class="n">tgt_dest</span><span class="p">,</span> <span class="n">isPlaceholder_dest</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Copies memory from <code class="docutils literal notranslate"><span class="pre">src</span></code> to <code class="docutils literal notranslate"><span class="pre">dest</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">copy</span></code> invokes the operation on a <a class="reference internal" href="device.html#device"><span class="std std-ref">device</span></a>. The source,
+destination, or both source and destination are
+<a class="reference internal" href="accessors.html#iface-accessors"><span class="std std-ref">Accessors</span></a>. Source or destination can be a pointer or a
+<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>.</p>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>T_src</p></td>
+<td><p>Type of source data elements</p></td>
+</tr>
+<tr class="row-even"><td><p>dim_src</p></td>
+<td><p>Dimensionality of source accessor data</p></td>
+</tr>
+<tr class="row-odd"><td><p>T_dest</p></td>
+<td><p>Type of element for destination data</p></td>
+</tr>
+<tr class="row-even"><td><p>dim_dest</p></td>
+<td><p>Dimensionality of destination accessor data</p></td>
+</tr>
+<tr class="row-odd"><td><p>mode_src</p></td>
+<td><p>Mode for source accessor</p></td>
+</tr>
+<tr class="row-even"><td><p>mode_dest</p></td>
+<td><p>Mode for destination accessor</p></td>
+</tr>
+<tr class="row-odd"><td><p>tgt_src</p></td>
+<td><p>Target for source accessor</p></td>
+</tr>
+<tr class="row-even"><td><p>tgt_dest</p></td>
+<td><p>Target for destination accessor</p></td>
+</tr>
+<tr class="row-odd"><td><p>isPlaceholder_src</p></td>
+<td><p>Placeholder value for source accessor</p></td>
+</tr>
+<tr class="row-even"><td><p>isPlaceholder_dest</p></td>
+<td><p>Placeholder value for destination accessor</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>src</p></td>
+<td><p>source of copy</p></td>
+</tr>
+<tr class="row-even"><td><p>dest</p></td>
+<td><p>destination of copy</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="update-host">
+<h3>update_host<a class="headerlink" href="#update-host" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dim</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">tgt</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">update_host</span><span class="p">(</span><span class="n">accessor</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">tgt</span><span class="p">,</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span> <span class="n">acc</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 74%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>T</p></td>
+<td><p>Type of element associated with accessor</p></td>
+</tr>
+<tr class="row-even"><td><p>dim</p></td>
+<td><p>Dimensionality of accessor</p></td>
+</tr>
+<tr class="row-odd"><td><p>mode</p></td>
+<td><p>Access mode for accessor</p></td>
+</tr>
+<tr class="row-even"><td><p>tgt</p></td>
+<td><p>Target for accessor</p></td>
+</tr>
+<tr class="row-odd"><td><p>isPlaceholder</p></td>
+<td><p>Placeholder value for accessor</p></td>
+</tr>
+</tbody>
+</table>
+<p>Updates host copy of data associated with accessor.</p>
+</div>
+<div class="section" id="fill">
+<span id="handler-fill"></span><h3>fill<a class="headerlink" href="#fill" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dim</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">mode</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">tgt</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">fill</span><span class="p">(</span><span class="n">accessor</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">tgt</span><span class="p">,</span> <span class="n">isPlaceholder</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">,</span> <span class="n">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">pattern</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">event</span> <span class="n">fill</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span> <span class="n">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">count</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 74%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>T</p></td>
+<td><p>Type of element associated with accessor</p></td>
+</tr>
+<tr class="row-even"><td><p>dim</p></td>
+<td><p>Dimensionality of accessor</p></td>
+</tr>
+<tr class="row-odd"><td><p>mode</p></td>
+<td><p>Access mode for accessor</p></td>
+</tr>
+<tr class="row-even"><td><p>tgt</p></td>
+<td><p>Target for accessor</p></td>
+</tr>
+<tr class="row-odd"><td><p>isPlaceholder</p></td>
+<td><p>Placeholder value for accessor</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dest</p></td>
+<td><p>Destination of fill operation</p></td>
+</tr>
+<tr class="row-even"><td><p>pattern</p></td>
+<td><p>Value to fill</p></td>
+</tr>
+</tbody>
+</table>
+<p>Fill the destination with the value in <code class="docutils literal notranslate"><span class="pre">pattern</span></code>.  The destination
+may be memory associated with an accessor or allocated with
+<a class="reference internal" href="usm-malloc.html#malloc-device"><span class="std std-ref">malloc_device</span></a>.</p>
+</div>
+<div class="section" id="memcpy">
+<span id="handler-memcpy"></span><h3>memcpy<a class="headerlink" href="#memcpy" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">memcpy</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span><span class="o">*</span> <span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set memory allocated with <a class="reference internal" href="usm-malloc.html#malloc-device"><span class="std std-ref">malloc_device</span></a>. For usage, see
+<a class="reference internal" href="event.html#event-elapsed-time"><span class="std std-ref">Example</span></a>.</p>
+</div>
+<div class="section" id="memset">
+<span id="handler-memset"></span><h3>memset<a class="headerlink" href="#memset" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">memset</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span> <span class="nb">int</span> <span class="n">value</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set memory allocated with <a class="reference internal" href="usm-malloc.html#malloc-device"><span class="std std-ref">malloc_device</span></a>. For usage, see
+<a class="reference internal" href="event.html#event-elapsed-time"><span class="std std-ref">Example</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kernel.html" class="btn btn-neutral float-right" title="Kernel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="command-group.html" class="btn btn-neutral float-left" title="Command groups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

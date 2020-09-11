@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contexts &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Devices" href="device.html" />
+    <link rel="prev" title="Platforms" href="platform.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="device-selector.html">Device selectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform.html">Platforms</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Contexts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#context">context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#context-info">Context Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#context-properties">Context Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="device.html">Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queue.html">Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event.html">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>Contexts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/context.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contexts">
+<h1>Contexts<a class="headerlink" href="#contexts" title="Permalink to this headline">¶</a></h1>
+<div class="api-class section" id="context">
+<span id="id1"></span><h2>context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">context</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A context encapsulates a single SYCL platform and a collection of SYCL
+devices associated with the platform.</p>
+<p>A context may include a subset of the devices provided by the
+platform. The same platform may be associated with more than one
+context, but a device can only be part of a single context.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.6.3</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="constructors">
+<h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">explicit</span> <span class="n">context</span><span class="p">(</span><span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">context</span><span class="p">(</span><span class="n">async_handler</span> <span class="n">asyncHandler</span><span class="p">,</span>
+        <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">context</span><span class="p">(</span><span class="n">const</span> <span class="n">device</span> <span class="o">&amp;</span><span class="n">dev</span><span class="p">,</span> <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">context</span><span class="p">(</span><span class="n">const</span> <span class="n">device</span> <span class="o">&amp;</span><span class="n">dev</span><span class="p">,</span> <span class="n">async_handler</span> <span class="n">asyncHandler</span><span class="p">,</span>
+        <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">context</span><span class="p">(</span><span class="n">const</span> <span class="n">platform</span> <span class="o">&amp;</span><span class="n">plt</span><span class="p">,</span> <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">context</span><span class="p">(</span><span class="n">const</span> <span class="n">platform</span> <span class="o">&amp;</span><span class="n">plt</span><span class="p">,</span> <span class="n">async_handler</span> <span class="n">asyncHandler</span><span class="p">,</span>
+        <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">context</span><span class="p">(</span><span class="n">const</span> <span class="n">vector_class</span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">deviceList</span><span class="p">,</span>
+        <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">context</span><span class="p">(</span><span class="n">const</span> <span class="n">vector_class</span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">deviceList</span><span class="p">,</span>
+        <span class="n">async_handler</span> <span class="n">asyncHandler</span><span class="p">,</span> <span class="n">const</span> <span class="n">property_list</span> <span class="o">&amp;</span><span class="n">propList</span> <span class="o">=</span> <span class="p">{});</span>
+<span class="n">context</span><span class="p">(</span><span class="n">cl_context</span> <span class="n">clContext</span><span class="p">,</span> <span class="n">async_handler</span> <span class="n">asyncHandler</span> <span class="o">=</span> <span class="p">{});</span>
+</pre></div>
+</div>
+<p>Construct a context.</p>
+<p>The parameters to the constructor allow control of the devices and
+platforms associated with the context. The constructor uses the
+<a class="reference internal" href="device-selector.html#built-in-device-selectors"><span class="std std-ref">default selector</span></a> when no platforms
+or devices are supplied.</p>
+<p class="rubric">Parameters</p>
+<dl class="simple">
+<dt>propList</dt><dd><p>See <a class="reference internal" href="#context-properties">Context Properties</a>.</p>
+</dd>
+<dt>asyncHandler</dt><dd><p>Called to report asynchronous SYCL exceptions for this context</p>
+</dd>
+<dt>dev</dt><dd><p>Constructed context contains device</p>
+</dd>
+<dt>deviceList</dt><dd><p>Constructed context contains devices</p>
+</dd>
+<dt>plt</dt><dd><p>Constructed context contains platform</p>
+</dd>
+<dt>clContext</dt><dd><p>Constructed context contains cl_context</p>
+</dd>
+</dl>
+<p>Constructs a context</p>
+</div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cl_context</span> <span class="n">get</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns cl_context that was passed in constructor.</p>
+</div>
+<div class="section" id="is-host">
+<h3>is_host<a class="headerlink" href="#is-host" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_host</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns True if this context is a host context.</p>
+</div>
+<div class="section" id="get-platform">
+<h3>get_platform<a class="headerlink" href="#get-platform" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">platform</span> <span class="n">get_platform</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Return platform associated with this context.</p>
+</div>
+<div class="section" id="get-devices">
+<h3>get_devices<a class="headerlink" href="#get-devices" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vector_class</span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span> <span class="n">get_devices</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns vector of devices associated with this context.</p>
+</div>
+<div class="section" id="get-info">
+<h3>get_info<a class="headerlink" href="#get-info" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">context</span> <span class="n">param</span><span class="o">&gt;</span>
+<span class="n">typename</span> <span class="n">info</span><span class="p">::</span><span class="n">param_traits</span><span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">context</span><span class="p">,</span> <span class="n">param</span><span class="o">&gt;</span><span class="p">::</span><span class="n">return_type</span> <span class="n">get_info</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Returns information about the context as determined by <code class="docutils literal notranslate"><span class="pre">param</span></code>. See
+<a class="reference internal" href="#context-info">Context Info</a> for details.</p>
+</div>
+<div class="section" id="has-property">
+<h3>has_property<a class="headerlink" href="#has-property" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">propertyT</span><span class="o">&gt;</span>
+<span class="nb">bool</span> <span class="n">has_property</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 81%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>propertyT</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Returns True if the property type was passed to the constructor.</p>
+</div>
+<div class="section" id="get-property">
+<h3>get_property<a class="headerlink" href="#get-property" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">propertyT</span><span class="o">&gt;</span>
+<span class="n">propertyT</span> <span class="n">get_property</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 81%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>propertyT</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Returns copy of property of passed to the constructor.</p>
+</div>
+</div>
+<div class="section" id="context-info">
+<h2>Context Info<a class="headerlink" href="#context-info" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">context</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
+  <span class="n">reference_count</span><span class="p">,</span>
+  <span class="n">platform</span><span class="p">,</span>
+  <span class="n">devices</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p class="rubric">Namespace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span>
+</pre></div>
+</div>
+<p>Used as a template parameter for <a class="reference internal" href="#get-info">get_info</a> to determine the type of
+information.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 31%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Descriptor</p></th>
+<th class="head"><p>Return type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>reference_count</p></td>
+<td><p>cl_uint</p></td>
+<td><p>Reference count of the underlying cl_context</p></td>
+</tr>
+<tr class="row-odd"><td><p>platform</p></td>
+<td><p>platform</p></td>
+<td><p>SYCL platform for the context</p></td>
+</tr>
+<tr class="row-even"><td><p>devices</p></td>
+<td><p>vector_class&lt;device&gt;</p></td>
+<td><p>SYCL devices associated with this platform</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="context-properties">
+<h2>Context Properties<a class="headerlink" href="#context-properties" title="Permalink to this headline">¶</a></h2>
+<p>SYCL does not define any properties for <a class="reference internal" href="#context">context</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="device.html" class="btn btn-neutral float-right" title="Devices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="platform.html" class="btn btn-neutral float-left" title="Platforms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

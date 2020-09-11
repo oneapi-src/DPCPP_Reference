@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Local accessor &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Image accessor" href="image-accessor.html" />
+    <link rel="prev" title="Buffer accessors" href="buffer-accessor.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="buffer.html">Buffers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="accessors.html">Accessors</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="buffer-accessor.html">Buffer accessors</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Local accessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="image-accessor.html">Image accessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessor-enums.html">mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessor-enums.html#target">target</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="address-space.html">Multipointer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="private_memory.html">private_memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sampler.html">Samplers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+          <li><a href="accessors.html">Accessors</a> &raquo;</li>
+        
+      <li>Local accessor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/local-accessor.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="api-class section" id="local-accessor">
+<h1>Local accessor<a class="headerlink" href="#local-accessor" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">dataT</span><span class="p">,</span> <span class="nb">int</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">access</span><span class="p">::</span><span class="n">mode</span> <span class="n">accessmode</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">target</span> <span class="n">accessTarget</span> <span class="o">=</span> <span class="n">access</span><span class="p">::</span><span class="n">target</span><span class="p">::</span><span class="n">global_buffer</span><span class="p">,</span>
+          <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span> <span class="n">isPlaceholder</span> <span class="o">=</span> <span class="n">access</span><span class="p">::</span><span class="n">placeholder</span><span class="p">::</span><span class="n">false_t</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">accessor</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Description</p>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 68%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dataT</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dimensions</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>accessmode</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>accessTarget</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>isPlaceholder</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Member types</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 68%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>value_type</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>reference</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>const_reference</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.7.6.11</p>
+</div>
+<p class="rubric">Member and nonmember functions</p>
+<div class="section" id="constructors">
+<h2>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<pre class="literal-block"><em>Available only when:
+ dimensions == 0</em>
+
+accessor(handler &amp;commandGroupHandlerRef, const property_list &amp;propList = {});
+
+
+<em>Available only when:
+ dimensions &gt; 0</em>
+
+accessor(range&lt;dimensions&gt; allocationSize, handler &amp;commandGroupHandlerRef,
+         const property_list &amp;propList = {});</pre>
+</div>
+<div class="section" id="get-size">
+<h2>get_size<a class="headerlink" href="#get-size" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_size</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Returns</p>
+</div>
+<div class="section" id="get-count">
+<h2>get_count<a class="headerlink" href="#get-count" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_t</span> <span class="n">get_count</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Returns</p>
+</div>
+<div class="section" id="get-range">
+<h2>get_range<a class="headerlink" href="#get-range" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="o">&lt;</span><span class="n">dimensions</span><span class="o">&gt;</span> <span class="n">get_range</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="rubric">Template parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 68%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dimensions</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Returns</p>
+</div>
+<div class="section" id="get-pointer">
+<h2>get_pointer<a class="headerlink" href="#get-pointer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local_ptr</span><span class="o">&lt;</span><span class="n">dataT</span><span class="o">&gt;</span> <span class="n">get_pointer</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Available only when: accessTarget == access::target::local</p>
+</div>
+<div class="section" id="operator">
+<h2>operator[]<a class="headerlink" href="#operator" title="Permalink to this headline">¶</a></h2>
+<pre class="literal-block"><em>Available only when:
+ accessMode == access::mode::read_write &amp;&amp; dimensions &gt; 0</em>
+
+dataT &amp;operator[](id&lt;dimensions&gt; index) const;
+
+<em>Available only when:
+ accessMode == access::mode::read_write &amp;&amp; dimensions == 1</em>
+
+dataT &amp;operator[](size_t index) const
+
+<em>Available only when:
+ accessMode == access::mode::atomic &amp;&amp; dimensions &gt; 0</em>
+
+atomic&lt;dataT, access::address_space::local_space&gt; operator[](
+  id&lt;dimensions&gt; index) const;
+
+<em>Available only when:
+ accessMode == access::mode::atomic &amp;&amp; dimensions == 1</em>
+
+atomic&lt;dataT, access::address_space::local_space&gt; operator[](
+  size_t index) const;
+
+<em>Available only when:
+ dimensions &gt; 1</em>
+
+__unspecified__ &amp;operator[](size_t index) const;</pre>
+</div>
+<div class="section" id="id1">
+<h2>operator ()<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<pre class="literal-block"><em>Available only when:
+ accessMode == access::mode::read_write &amp;&amp; dimensions == 0</em>
+
+operator dataT &amp;() const;
+
+<em>Available only when:
+ accessMode == access::mode::atomic &amp;&amp; dimensions == 0</em>
+
+operator atomic&lt;dataT,access::address_space::local_space&gt; () const;</pre>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="image-accessor.html" class="btn btn-neutral float-right" title="Image accessor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="buffer-accessor.html" class="btn btn-neutral float-left" title="Buffer accessors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>malloc_device &mdash; DPC++ Reference  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="usm_allocator" href="usm_allocator.html" />
+    <link rel="prev" title="Samplers" href="sampler.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.oneapi.com/index.html" class="icon icon-home"> DPC++ Reference
+          
+
+          
+            
+            <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">malloc_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#malloc-host">malloc_host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#malloc-shared">malloc_shared</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#free">free</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usm_allocator.html">usm_allocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usm.html">alloc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notices.html">Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DPC++ Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+        
+      <li>malloc_device</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/dpcpp-ref/blob/dpcpp/source/iface/usm-malloc.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="malloc-device">
+<span id="id1"></span><h1>malloc_device<a class="headerlink" href="#malloc-device" title="Permalink to this headline">¶</a></h1>
+<p><em>Since SYCL 2020</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span><span class="o">*</span> <span class="n">malloc_device</span><span class="p">(</span><span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                    <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+<span class="n">void</span><span class="o">*</span> <span class="n">aligned_alloc_device</span><span class="p">(</span><span class="n">size_t</span> <span class="n">alignment</span><span class="p">,</span>
+                           <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                           <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">malloc_device</span><span class="p">(</span><span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">aligned_alloc_device</span><span class="p">(</span><span class="n">size_d</span> <span class="n">alignment</span><span class="p">,</span>
+                        <span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                        <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+
+<span class="n">void</span><span class="o">*</span> <span class="n">malloc_device</span><span class="p">(</span><span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                    <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                    <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+<span class="n">void</span><span class="o">*</span> <span class="n">aligned_alloc_device</span><span class="p">(</span><span class="n">size_t</span> <span class="n">alignment</span><span class="p">,</span>
+                           <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                           <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                           <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">malloc_device</span><span class="p">(</span><span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">aligned_alloc_device</span><span class="p">(</span><span class="n">size_d</span> <span class="n">alignment</span><span class="p">,</span>
+                        <span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                        <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                        <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>alignment</p></td>
+<td><p>alignment of allocated data</p></td>
+</tr>
+<tr class="row-even"><td><p>num_bytes</p></td>
+<td><p>allocation size in bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p>count</p></td>
+<td><p>number of elements</p></td>
+</tr>
+<tr class="row-even"><td><p>dev</p></td>
+<td><p>See <a class="reference internal" href="device.html#device"><span class="std std-ref">device</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>q</p></td>
+<td><p>See <a class="reference internal" href="queue.html#queue"><span class="std std-ref">queue</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>ctxt</p></td>
+<td><p>See <a class="reference internal" href="context.html#context"><span class="std std-ref">context</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Returns a pointer to the newly allocated memory on the specified
+device on success. This memory is not accessible on the host. Memory
+allocated by malloc_device must be deallocated with <a class="reference internal" href="#sycl-free"><span class="std std-ref">sycl::free</span></a> to avoid memory leaks. If ctxt is a host context, it
+should behave as if calling malloc_host. On failure, returns nullptr.</p>
+<p>The host may not directly reference the memory, but can read and write
+the memory with <a class="reference internal" href="queue.html#queue"><span class="std std-ref">queue</span></a> member functions (<a class="reference internal" href="queue.html#queue-memset"><span class="std std-ref">memset</span></a>,
+<a class="reference internal" href="queue.html#queue-memcpy"><span class="std std-ref">memcpy</span></a>, <a class="reference internal" href="queue.html#queue-fill"><span class="std std-ref">fill</span></a>) or <a class="reference internal" href="command-group-handler.html#handler"><span class="std std-ref">handler</span></a> member
+functions (<a class="reference internal" href="command-group-handler.html#handler-memset"><span class="std std-ref">memset</span></a>, <a class="reference internal" href="command-group-handler.html#handler-memcpy"><span class="std std-ref">memcpy</span></a>, and
+<a class="reference internal" href="command-group-handler.html#handler-fill"><span class="std std-ref">fill</span></a>).</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.8.5.1</p>
+</div>
+</div>
+<div class="section" id="malloc-host">
+<h1>malloc_host<a class="headerlink" href="#malloc-host" title="Permalink to this headline">¶</a></h1>
+<p><em>Since SYCL 2020</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span><span class="o">*</span> <span class="n">malloc_host</span><span class="p">(</span><span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                    <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+<span class="n">void</span><span class="o">*</span> <span class="n">aligned_alloc_host</span><span class="p">(</span><span class="n">size_t</span> <span class="n">alignment</span><span class="p">,</span>
+                           <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                           <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">malloc_host</span><span class="p">(</span><span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">aligned_alloc_host</span><span class="p">(</span><span class="n">size_d</span> <span class="n">alignment</span><span class="p">,</span>
+                        <span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                        <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+
+<span class="n">void</span><span class="o">*</span> <span class="n">malloc_host</span><span class="p">(</span><span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                    <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                    <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+<span class="n">void</span><span class="o">*</span> <span class="n">aligned_alloc_host</span><span class="p">(</span><span class="n">size_t</span> <span class="n">alignment</span><span class="p">,</span>
+                           <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                           <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                           <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">malloc_host</span><span class="p">(</span><span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">aligned_alloc_host</span><span class="p">(</span><span class="n">size_d</span> <span class="n">alignment</span><span class="p">,</span>
+                        <span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                        <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                        <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>alignment</p></td>
+<td><p>alignment of allocated data</p></td>
+</tr>
+<tr class="row-even"><td><p>num_bytes</p></td>
+<td><p>allocation size in bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p>count</p></td>
+<td><p>number of elements</p></td>
+</tr>
+<tr class="row-even"><td><p>dev</p></td>
+<td><p>See <a class="reference internal" href="device.html#device"><span class="std std-ref">device</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>ctxt</p></td>
+<td><p>See <a class="reference internal" href="context.html#context"><span class="std std-ref">context</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Returns a pointer to the newly allocated host memory on success. Host
+and device may reference the memory.  Memory allocated by malloc_host
+must be deallocated with <a class="reference internal" href="#sycl-free"><span class="std std-ref">sycl::free</span></a> to avoid memory
+leaks. On failure, returns nullptr.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.8.5.2</p>
+</div>
+</div>
+<div class="section" id="malloc-shared">
+<h1>malloc_shared<a class="headerlink" href="#malloc-shared" title="Permalink to this headline">¶</a></h1>
+<p><em>Since SYCL 2020</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span><span class="o">*</span> <span class="n">malloc_shared</span><span class="p">(</span><span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                    <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+<span class="n">void</span><span class="o">*</span> <span class="n">aligned_alloc_shared</span><span class="p">(</span><span class="n">size_t</span> <span class="n">alignment</span><span class="p">,</span>
+                           <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                           <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">malloc_shared</span><span class="p">(</span><span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">aligned_alloc_shared</span><span class="p">(</span><span class="n">size_d</span> <span class="n">alignment</span><span class="p">,</span>
+                        <span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                        <span class="n">const</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+
+<span class="n">void</span><span class="o">*</span> <span class="n">malloc_shared</span><span class="p">(</span><span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                    <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                    <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+<span class="n">void</span><span class="o">*</span> <span class="n">aligned_alloc_shared</span><span class="p">(</span><span class="n">size_t</span> <span class="n">alignment</span><span class="p">,</span>
+                           <span class="n">size_t</span> <span class="n">num_bytes</span><span class="p">,</span>
+                           <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                           <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">malloc_shared</span><span class="p">(</span><span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                 <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">aligned_alloc_shared</span><span class="p">(</span><span class="n">size_d</span> <span class="n">alignment</span><span class="p">,</span>
+                        <span class="n">size_t</span> <span class="n">count</span><span class="p">,</span>
+                        <span class="n">const</span> <span class="n">device</span><span class="o">&amp;</span> <span class="n">dev</span><span class="p">,</span>
+                        <span class="n">const</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">ctxt</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="rubric">Parameters</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>alignment</p></td>
+<td><p>alignment of allocated data</p></td>
+</tr>
+<tr class="row-even"><td><p>num_bytes</p></td>
+<td><p>allocation size in bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p>count</p></td>
+<td><p>number of elements</p></td>
+</tr>
+<tr class="row-even"><td><p>dev</p></td>
+<td><p>See <a class="reference internal" href="device.html#device"><span class="std std-ref">device</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>ctxt</p></td>
+<td><p>See <a class="reference internal" href="context.html#context"><span class="std std-ref">context</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Returns a pointer to the newly allocated shared memory on the
+specified device on success. The SYCL runtime may migrate the data
+between host and device to optimize access.  Memory allocated by
+malloc_shared must be deallocated with <a class="reference internal" href="#sycl-free"><span class="std std-ref">sycl::free</span></a>
+to avoid memory leaks. If ctxt is a host context, should behave as if
+calling malloc_host. On failure, returns nullptr.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.8.5.2</p>
+</div>
+</div>
+<div class="section" id="free">
+<span id="sycl-free"></span><h1>free<a class="headerlink" href="#free" title="Permalink to this headline">¶</a></h1>
+<p><em>Since SYCL 2020</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">free</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span> <span class="n">context</span><span class="o">&amp;</span> <span class="n">context</span><span class="p">);</span>
+<span class="n">void</span> <span class="n">free</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span> <span class="n">queue</span><span class="o">&amp;</span> <span class="n">q</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Free memory allocated by <a class="reference internal" href="#malloc-device">malloc_device</a>, <a class="reference internal" href="#malloc-host">malloc_host</a>, or
+<a class="reference internal" href="#malloc-shared">malloc_shared</a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.8.5.4</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usm_allocator.html" class="btn btn-neutral float-right" title="usm_allocator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sampler.html" class="btn btn-neutral float-left" title="Samplers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
