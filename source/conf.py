@@ -147,7 +147,7 @@ html_css_files = ['custom.css']
 html_context = {
     'display_github': True,
     'github_user': 'oneapi-src',
-    'github_repo': 'dpcpp-ref',
+    'github_repo': 'DPCPP_Reference',
     'github_version': 'dpcpp/source/'
 }
 
