@@ -55,5 +55,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DOCS}}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DOCS}}
       run: |
+          . venv/bin/activate
           aws s3 sync build/html/  s3://oneapi.com/docs/versions/latest/ --dryrun
           aws s3 sync build/html/  s3://pre.oneapi.com/docs/versions/latest/ --dryrun
