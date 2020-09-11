@@ -41,7 +41,7 @@ jobs:
       run: |
           cd gh-pages
           rm -rf *
-	  touch .nojekyll
+          touch .nojekyll
           cp -r ../build/html/* .
           cp ../build/latex/*.pdf .
           git config user.name github-actions
