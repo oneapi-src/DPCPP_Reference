@@ -122,12 +122,12 @@ have a basic understanding of the oneAPI programming model concepts.
 * `SYCL`_
 * `SYCL Specification`_
 
- .. toctree::
-    :hidden:
+.. toctree::
+   :hidden:
 
-    model/index
-    dpcpp-index
-    glossary
-    notices
+   model/index
+   dpcpp-index
+   glossary
+   notices
   
 
