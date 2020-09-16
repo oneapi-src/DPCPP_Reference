@@ -40,8 +40,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Streams" href="stream.html" />
-    <link rel="prev" title="Vector types" href="vector-types.html" /> 
+    <link rel="next" title="IO" href="../io.html" />
+    <link rel="prev" title="Synchronization and atomics" href="../synchronization.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,18 +91,17 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../model/index.html">Programming Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../language/index.html">Language</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="dpcpp-index.html">Interface</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#header-file">Header File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#namespaces">Namespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#common-interface">Common Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#runtime-classes">Runtime Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-access">Data access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#unified-shared-memory-usm">Unified shared memory (USM)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#expressing-parallelism">Expressing parallelism</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#error-handling">Error handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#data-types">Data types</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="dpcpp-index.html#synchronization-and-atomics">Synchronization and atomics</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../dpcpp-index.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../header-file.html">Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../namespaces.html">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common.html">Common Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../runtime.html">Runtime Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data.html">Data access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usm.html">Unified shared memory (USM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parallelism.html">Expressing parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../error.html">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-types.html">Data types</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../synchronization.html">Synchronization and atomics</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Synchronization types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#access-fence-space">access::fence_space</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#memory-order">memory_order</a></li>
@@ -111,7 +110,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="dpcpp-index.html#io">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io.html">IO</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
@@ -162,7 +161,9 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="dpcpp-index.html">Interface</a> &raquo;</li>
+          <li><a href="../dpcpp-index.html">Interface</a> &raquo;</li>
+        
+          <li><a href="../synchronization.html">Synchronization and atomics</a> &raquo;</li>
         
       <li>Synchronization types</li>
     
@@ -307,10 +308,10 @@ T fetch_max(T operand, memory_order memoryOrder = memory_order::relaxed);</pre>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="stream.html" class="btn btn-neutral float-right" title="Streams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../io.html" class="btn btn-neutral float-right" title="IO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="vector-types.html" class="btn btn-neutral float-left" title="Vector types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../synchronization.html" class="btn btn-neutral float-left" title="Synchronization and atomics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
