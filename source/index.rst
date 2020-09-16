@@ -1,6 +1,6 @@
-.. SPDX-FileCopyrightText: 2020 The Khronos Group Inc.
 ..
-.. SPDX-License-Identifier: CC-BY-4.0
+  Copyright 2020 The Khronos Group Inc.
+  SPDX-License-Identifier: CC-BY-4.0
 
 .. _index:
 
@@ -122,12 +122,12 @@ have a basic understanding of the oneAPI programming model concepts.
 * `SYCL`_
 * `SYCL Specification`_
 
-.. toctree::
-   :hidden:
+ .. toctree::
+    :hidden:
 
-   model/index
-   language/index
-   iface/dpcpp-index
-   glossary
-   notices
+    model/index
+    dpcpp-index
+    glossary
+    notices
+  
 
