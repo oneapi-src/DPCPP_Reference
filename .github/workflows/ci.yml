@@ -49,11 +49,3 @@ jobs:
           git add .
           git commit -m "Update from github actions"
           git push
-    - name: Publish to s3
-      if: ${{ github.ref == 'refs/heads/publish' }}
-      env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DOCS}}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DOCS}}
-      run: |
-          aws s3 sync build/html/  s3://pre.oneapi.com/docs/versions/latest/dpcpp/
-          aws s3 sync build/html/  s3://oneapi.com/docs/versions/latest/dpcpp/
