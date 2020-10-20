@@ -6,9 +6,9 @@
 
 .. rst-class:: api-class
 	       
-=======
- group
-=======
+===========
+sycl::group
+===========
 
 ::
 
@@ -22,8 +22,6 @@ dimensions
 ===========  ===
 
 .. seealso:: |SYCL_SPEC_GROUP|
-
-.. member-toc::
 
 get_id
 ======
