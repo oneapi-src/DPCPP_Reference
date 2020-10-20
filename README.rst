@@ -79,12 +79,12 @@ Add license/copyright to a code example::
 License
 =======
 
-See `LICENSES`
+See licenses_
 
 Contribute
 ==========
 
-See `CONTRIBUTING.rst`
+See contributing_.
 
 Security
 ========
@@ -92,3 +92,5 @@ Security
 See `Guidelines
 <https://www.intel.com/content/www/us/en/security-center/default.html>`_.
 
+.. _licenses: LICENSES
+.. _contributing: CONTRIBUTING.rst

@@ -22,7 +22,7 @@ branch.
 License
 =======
 
-See `LICENSES/` for license information. By contributing to the
+See licenses_ for license information. By contributing to the
 project, you agree to the license and copyright terms therein and
 release your contribution under these terms.
 
@@ -74,3 +74,5 @@ Then you just add a line to every git commit message::
 Use your real name (sorry, no pseudonyms or anonymous contributions.)
 If you set your user.name and user.email git configs, you can sign your
 commit automatically with git commit -s.
+
+.. _licenses: LICENSES
