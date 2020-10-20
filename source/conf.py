@@ -127,8 +127,15 @@ html_favicon = '_static/favicons.png'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'sphinx_book_theme'
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_book_theme'
+
+html_theme_options = {
+        'repository_url': 'https://github.com/oneapi-src/DPCPP_Reference',
+        'path_to_docs': 'source',
+        'use_issues_button': True,
+        'use_edit_page_button': True,
+        'repository_branch': 'dpcpp'
+    }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -138,21 +145,10 @@ html_js_files = ['custom.js']
 html_css_files = ['custom.css']
 
 
-html_context = {
-    'display_github': True,
-    'github_user': 'oneapi-src',
-    'github_repo': 'DPCPP_Reference',
-    'github_version': 'dpcpp/source/'
-}
 
 # -- Options for latex output -------------------------------------------------
 
 #latex_logo = '_static/Khronos_Group_SYCL_logo.pdf'
-
-# -- notfound extension ------------------------------------
-
-notfound_default_language = 'syclreference'
-notfound_default_version = ''
 
 # -- Add some directives for structure------------------------------------
 
@@ -166,7 +162,6 @@ from sphinx.util import logging
 logger = logging.getLogger(__name__)
 
 class_layout_pattern = (':title'
-                        '(:rubric Namespace)?'
                         '(:rubric Template parameters:table)?'
                         '(:rubric Example)?'
                         '(:rubric Kernel dispatch:table)?'
@@ -245,11 +240,6 @@ def check_doc(app, doctree, docname):
             if 'api-class' in classes:
                 check_class(object_file, section)
 
-class MemberTocDirective(Directive):
-
-    def run(self):
-        return [nodes.rubric(text='Member and nonmember functions')]
-
 class TParamsDirective(Directive):
 
     def run(self):
@@ -294,7 +284,6 @@ def setup(app):
     # add_custom_css = getattr(app,'add_css_file',getattr(app,'add_stylesheet'))
     # add_custom_css('custom.css')
     app.connect('doctree-resolved', check_doc)
-    app.add_directive('member-toc', MemberTocDirective)
     if False:
         app.add_directive('tparams', TParamsDirective)
         app.add_directive('params', ParamsDirective)
