@@ -6,6 +6,15 @@
  DPC++ Language Reference
 ==========================
  
+This document is the source for the `DPC++
+<https://software.intel.com/content/www/us/en/develop/tools/oneapi/data-parallel-c-plus-plus.html>`__
+language reference. Data Parallel C++ (DPC++) is an open,
+standards-based evolution of ISO C++ that incorporates Khronos SYCL*
+and community extensions to simplify data parallel programming. DPC++
+allows code reuse across hardware targets, and enables high
+productivity and performance across CPU, GPU, and FPGA architectures,
+while permitting accelerator-specific tuning.
+
 The document is a work in progress. It may be missing descriptions or
 entire classes. If you see something wrong, file an issue or submit a
 PR to fix it.
@@ -50,6 +59,7 @@ sycl is a remote that points to the upstream repo, then::
   git commit -m 'merge from sycl'
   git push
 
+
 License and Copyright Markings
 ==============================
 
@@ -65,3 +75,20 @@ Add license/copyright to a rst file (may require a `patch
 Add license/copyright to a code example::
   
   reuse addheader -c "Intel Corporation" -l Apache-2.0 path/to/file.cpp
+
+License
+=======
+
+See `LICENSES`
+
+Contribute
+==========
+
+See `CONTRIBUTING.rst`
+
+Security
+========
+
+See `Guidelines
+<https://www.intel.com/content/www/us/en/security-center/default.html>`_.
+
