@@ -9,6 +9,7 @@ Interface
 =========
 
 .. toctree::
+   :maxdepth: 1
 
    header-file
    namespaces

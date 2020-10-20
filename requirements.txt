@@ -3,7 +3,6 @@
 
 reuse
 Sphinx
-sphinx-rtd-theme
 sphinx-book-theme
 sphinxcontrib-spelling
 
