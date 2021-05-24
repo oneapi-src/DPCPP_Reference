@@ -16,7 +16,7 @@ class Vassign {
 public:
   Vassign(accessor<int, 1, access::mode::read_write,
 	  access::target::global_buffer> &access_) : access(access_) {}
-  void operator()(id<1> id) { access[id] = 1; }
+  void operator()(id<1> id) const { access[id] = 1; }
 };
 
 int main() {
