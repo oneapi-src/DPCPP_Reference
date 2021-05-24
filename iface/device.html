@@ -4,10 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Devices &#8212; DPC++ Reference  documentation</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,38 +21,33 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="../_static/custom.js"></script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <link rel="shortcut icon" href="../_static/favicons.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Queues" href="queue.html" />
     <link rel="prev" title="Contexts" href="context.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -59,32 +56,108 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">DPC++ Reference  documentation</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/oneAPI-rgb-rev-100.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">DPC++ Reference  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../model/index.html">
    Programming Model
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model/sample-program.html">
+     Anatomy of a DPC++ Program
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model/platform-model.html">
+     Platform Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model/execution-model.html">
+     Execution Model
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../model/memory-model.html">
+     Memory Model
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../model/memory-objects.html">
+       Memory Objects
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../model/accessors.html">
+       Accessors
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../model/synchronization.html">
+       Synchronization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../model/unified-shared-memory.html">
+       Unified Shared Memory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../model/memory-types.html">
+       Memory Types
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model/kernel-programming-model.html">
+     Kernel Programming Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model/error-handling.html">
+     Error Handling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model/fall-back.html">
+     Fall Back
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../dpcpp-index.html">
    Interface
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../header-file.html">
@@ -96,10 +169,15 @@
      Namespaces
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../common.html">
      Common Interface
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="common-byval.html">
@@ -123,10 +201,15 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 current active">
+   <li class="toctree-l2 current active has-children">
     <a class="reference internal" href="../runtime.html">
      Runtime Classes
     </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
     <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="device-selector.html">
@@ -160,10 +243,15 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../data.html">
      Data access
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="buffer.html">
@@ -175,19 +263,19 @@
        Images
       </a>
      </li>
-     <li class="toctree-l3">
+     <li class="toctree-l3 has-children">
       <a class="reference internal" href="accessors.html">
        Accessors
       </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
       <ul>
        <li class="toctree-l4">
         <a class="reference internal" href="buffer-accessor.html">
          sycl::accessor (buffer)
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="buffer-accessor.html#sycl-accessor-buffer-properties">
-         sycl::accessor (buffer) properties
         </a>
        </li>
        <li class="toctree-l4">
@@ -203,11 +291,6 @@
        <li class="toctree-l4">
         <a class="reference internal" href="accessor-enums.html">
          sycl::access::mode
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="accessor-enums.html#sycl-access-target">
-         sycl::access::target
         </a>
        </li>
       </ul>
@@ -229,29 +312,19 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../usm.html">
      Unified shared memory (USM)
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="usm-malloc.html">
        sycl::malloc_device
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="usm-malloc.html#sycl-malloc-host">
-       sycl::malloc_host
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="usm-malloc.html#sycl-malloc-shared">
-       sycl::malloc_shared
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="usm-malloc.html#sycl-free">
-       sycl::free
       </a>
      </li>
      <li class="toctree-l3">
@@ -266,10 +339,15 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../parallelism.html">
      Expressing parallelism
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="range.html">
@@ -333,10 +411,15 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../error.html">
      Error handling
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="exception.html">
@@ -345,10 +428,15 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../data-types.html">
      Data types
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="scalar-types.html">
@@ -362,10 +450,15 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../synchronization.html">
      Synchronization and atomics
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="types.html">
@@ -374,10 +467,15 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../io.html">
      IO
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="stream.html">
@@ -400,9 +498,8 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
@@ -417,25 +514,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -447,9 +544,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -466,25 +563,25 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sycl-device">
    sycl::device
@@ -596,8 +693,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -605,9 +702,9 @@
         
               <div>
                 
-  <div class="section" id="devices">
+  <section id="devices">
 <h1>Devices<a class="headerlink" href="#devices" title="Permalink to this headline">¶</a></h1>
-<div class="api-class section" id="sycl-device">
+<section class="api-class" id="sycl-device">
 <span id="device"></span><h2>sycl::device<a class="headerlink" href="#sycl-device" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">device</span><span class="p">;</span>
 </pre></div>
@@ -619,7 +716,7 @@ execute kernel functions.</p>
 <p class="admonition-title">See also</p>
 <p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020-provisional.pdf">SYCL Specification</a> Section 4.6.4</p>
 </div>
-<div class="section" id="constructors">
+<section id="constructors">
 <h3>(constructors)<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">device</span><span class="p">();</span>
 <span class="n">explicit</span> <span class="n">device</span><span class="p">(</span><span class="n">cl_device_id</span> <span class="n">deviceId</span><span class="p">);</span>
@@ -645,50 +742,50 @@ constructed from an OpenCL|trade| device or may be chosen by a
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="get">
+</section>
+<section id="get">
 <h3>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cl_device_id</span> <span class="n">get</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Return the cl_device_id of the underlying OpenCL platform.</p>
-</div>
-<div class="section" id="is-host">
+</section>
+<section id="is-host">
 <h3>is_host<a class="headerlink" href="#is-host" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_host</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Returns True if the device is a host device, False otherwise.</p>
-</div>
-<div class="section" id="is-cpu">
+</section>
+<section id="is-cpu">
 <h3>is_cpu<a class="headerlink" href="#is-cpu" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_cpu</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Returns True if the device is a CPU, False otherwise.</p>
-</div>
-<div class="section" id="is-gpu">
+</section>
+<section id="is-gpu">
 <h3>is_gpu<a class="headerlink" href="#is-gpu" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_gpu</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Returns True if the device is a GPU, False otherwise.</p>
-</div>
-<div class="section" id="is-accelerator">
+</section>
+<section id="is-accelerator">
 <h3>is_accelerator<a class="headerlink" href="#is-accelerator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_accelerator</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Returns True if the device is an accelerator, False otherwise.</p>
-</div>
-<div class="section" id="get-platform">
+</section>
+<section id="get-platform">
 <h3>get_platform<a class="headerlink" href="#get-platform" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">platform</span> <span class="n">get_platform</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Returns the platform that contains the device.</p>
-</div>
-<div class="section" id="get-info">
+</section>
+<section id="get-info">
 <h3>get_info<a class="headerlink" href="#get-info" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">device</span> <span class="n">param</span><span class="o">&gt;</span>
 <span class="n">typename</span> <span class="n">info</span><span class="p">::</span><span class="n">param_traits</span><span class="o">&lt;</span><span class="n">info</span><span class="p">::</span><span class="n">device</span><span class="p">,</span> <span class="n">param</span><span class="o">&gt;</span><span class="p">::</span><span class="n">return_type</span>
@@ -699,15 +796,15 @@ constructed from an OpenCL|trade| device or may be chosen by a
 <a class="reference internal" href="#device-info">Device Info</a> for details.</p>
 <p class="rubric">Example</p>
 <p>See <a class="reference internal" href="platform.html#platform-example"><span class="std std-ref">Example</span></a>.</p>
-</div>
-<div class="section" id="has-extension">
+</section>
+<section id="has-extension">
 <h3>has_extension<a class="headerlink" href="#has-extension" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">has_extension</span><span class="p">(</span><span class="n">const</span> <span class="n">string_class</span> <span class="o">&amp;</span><span class="n">extension</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Returns True if device supports the extension.</p>
-</div>
-<div class="section" id="create-sub-devices">
+</section>
+<section id="create-sub-devices">
 <h3>create_sub_devices<a class="headerlink" href="#create-sub-devices" title="Permalink to this headline">¶</a></h3>
 <pre class="literal-block"><em>Available only when:
  prop == info::partition_property::partition_equally</em>
@@ -764,8 +861,8 @@ property.</p>
 the <code class="docutils literal notranslate"><span class="pre">prop</span></code> template argument.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="get-devices">
+</section>
+<section id="get-devices">
 <span id="device-get-devices"></span><h3>get_devices<a class="headerlink" href="#get-devices" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">vector_class</span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span> <span class="n">get_devices</span><span class="p">(</span>
     <span class="n">info</span><span class="p">::</span><span class="n">device_type</span> <span class="n">deviceType</span> <span class="o">=</span> <span class="n">info</span><span class="p">::</span><span class="n">device_type</span><span class="p">::</span><span class="nb">all</span><span class="p">);</span>
@@ -774,30 +871,22 @@ the <code class="docutils literal notranslate"><span class="pre">prop</span></co
 <p>Returns vector of devices filtered by <a class="reference internal" href="#info-device-type"><span class="std std-ref">sycl::info::device_type</span></a>.</p>
 <p class="rubric">Example</p>
 <p>Enumerate the GPU devices</p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#include &lt;CL/sycl.hpp&gt;</span>
-
-<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="n">device</span> <span class="p">:</span> <span class="n">sycl</span><span class="p">::</span><span class="n">device</span><span class="p">::</span><span class="n">get_devices</span><span class="p">(</span><span class="n">sycl</span><span class="p">::</span><span class="n">info</span><span class="p">::</span><span class="n">device_type</span><span class="p">::</span><span class="n">gpu</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;  Device: &quot;</span>
-	      <span class="o">&lt;&lt;</span> <span class="n">device</span><span class="o">.</span><span class="n">get_info</span><span class="o">&lt;</span><span class="n">sycl</span><span class="p">::</span><span class="n">info</span><span class="p">::</span><span class="n">device</span><span class="p">::</span><span class="n">name</span><span class="o">&gt;</span><span class="p">()</span>
-	      <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">endl</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">#include &lt;CL/sycl.hpp&gt;</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos">4</span>  <span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="n">device</span> <span class="p">:</span> <span class="n">sycl</span><span class="p">::</span><span class="n">device</span><span class="p">::</span><span class="n">get_devices</span><span class="p">(</span><span class="n">sycl</span><span class="p">::</span><span class="n">info</span><span class="p">::</span><span class="n">device_type</span><span class="p">::</span><span class="n">gpu</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos">5</span>    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;  Device: &quot;</span>
+<span class="linenos">6</span>	      <span class="o">&lt;&lt;</span> <span class="n">device</span><span class="o">.</span><span class="n">get_info</span><span class="o">&lt;</span><span class="n">sycl</span><span class="p">::</span><span class="n">info</span><span class="p">::</span><span class="n">device</span><span class="p">::</span><span class="n">name</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="linenos">7</span>	      <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">8</span>  <span class="p">}</span>
+<span class="linenos">9</span><span class="p">}</span>
 </pre></div>
-</td></tr></table></div>
 </div>
-</div>
-<div class="section" id="device-info">
+</section>
+</section>
+<section id="device-info">
 <h2>Device Info<a class="headerlink" href="#device-info" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="sycl-info-device">
+<section id="sycl-info-device">
 <span id="info-device"></span><h3>sycl::info::device<a class="headerlink" href="#sycl-info-device" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">device</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
   <span class="n">device_type</span><span class="p">,</span>
@@ -1190,8 +1279,8 @@ information.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="sycl-info-device-type">
+</section>
+<section id="sycl-info-device-type">
 <span id="info-device-type"></span><h3>sycl::info::device_type<a class="headerlink" href="#sycl-info-device-type" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">device_type</span> <span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
   <span class="n">cpu</span><span class="p">,</span>         <span class="o">//</span> <span class="n">Maps</span> <span class="n">to</span> <span class="n">OpenCL</span> <span class="n">CL_DEVICE_TYPE_CPU</span>
@@ -1205,8 +1294,8 @@ information.</p>
 </pre></div>
 </div>
 <p>See platform <a class="reference internal" href="platform.html#platform-get-devices"><span class="std std-ref">get_devices</span></a> and device <a class="reference internal" href="#device-get-devices"><span class="std std-ref">get_devices</span></a>.</p>
-</div>
-<div class="section" id="sycl-info-partition-property">
+</section>
+<section id="sycl-info-partition-property">
 <h3>sycl::info::partition_property<a class="headerlink" href="#sycl-info-partition-property" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">partition_property</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
   <span class="n">no_partition</span><span class="p">,</span>
@@ -1217,8 +1306,8 @@ information.</p>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#create-sub-devices">create_sub_devices</a></p>
-</div>
-<div class="section" id="sycl-info-partition-affinity-domain">
+</section>
+<section id="sycl-info-partition-affinity-domain">
 <h3>sycl::info::partition_affinity_domain<a class="headerlink" href="#sycl-info-partition-affinity-domain" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">partition_affinity_domain</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
   <span class="n">not_applicable</span><span class="p">,</span>
@@ -1232,15 +1321,15 @@ information.</p>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#create-sub-devices">create_sub_devices</a></p>
-</div>
-<div class="section" id="sycl-info-local-mem-type">
+</section>
+<section id="sycl-info-local-mem-type">
 <h3>sycl::info::local_mem_type<a class="headerlink" href="#sycl-info-local-mem-type" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">local_mem_type</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span> <span class="n">none</span><span class="p">,</span> <span class="n">local</span><span class="p">,</span> <span class="k">global</span> <span class="p">};</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#get-info">get_info</a></p>
-</div>
-<div class="section" id="sycl-info-fp-config">
+</section>
+<section id="sycl-info-fp-config">
 <h3>sycl::info::fp_config<a class="headerlink" href="#sycl-info-fp-config" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">fp_config</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span>
   <span class="n">denorm</span><span class="p">,</span>
@@ -1255,15 +1344,15 @@ information.</p>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#get-info">get_info</a></p>
-</div>
-<div class="section" id="sycl-info-global-mem-cache-type">
+</section>
+<section id="sycl-info-global-mem-cache-type">
 <h3>sycl::info::global_mem_cache_type<a class="headerlink" href="#sycl-info-global-mem-cache-type" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">global_mem_cache_type</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">{</span> <span class="n">none</span><span class="p">,</span> <span class="n">read_only</span><span class="p">,</span> <span class="n">read_write</span> <span class="p">};</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#get-info">get_info</a></p>
-</div>
-<div class="section" id="sycl-info-execution-capability">
+</section>
+<section id="sycl-info-execution-capability">
 <h3>sycl::info::execution_capability<a class="headerlink" href="#sycl-info-execution-capability" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="k">class</span> <span class="nc">execution_capability</span> <span class="p">:</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="p">{</span>
   <span class="n">exec_kernel</span><span class="p">,</span>
@@ -1272,22 +1361,22 @@ information.</p>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#get-info">get_info</a></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="context.html" title="previous page">Contexts</a>
     <a class='right-next' id="next-link" href="queue.html" title="next page">Queues</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1304,11 +1393,9 @@ information.</p>
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
-    
+  
   </body>
 </html>
